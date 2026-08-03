@@ -657,8 +657,8 @@ nav::after {
   border-bottom:1px solid rgba(255,255,255,.08);
 }
 .network-head {
-  display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,430px);
-  gap:42px;align-items:end;padding:0 48px 38px;
+  display:grid;grid-template-columns:1fr;
+  gap:0;align-items:end;padding:0 48px 38px;
 }
 .network-kicker {
   margin:0 0 10px;color:#d92e7a;font:11px/1.2 'JetBrains Mono',monospace;
@@ -667,9 +667,6 @@ nav::after {
 .network-title {
   margin:0;font-family:'Bebas Neue',sans-serif;font-size:clamp(48px,6vw,86px);
   line-height:.88;letter-spacing:.035em;color:#e8e2d7;text-transform:uppercase;
-}
-.network-intro {
-  margin:0;color:rgba(232,226,215,.62);font:13px/1.7 'JetBrains Mono',monospace;
 }
 .logo-belts { display:grid;gap:16px; }
 .logo-belt {
@@ -683,7 +680,7 @@ nav::after {
 }
 .logo-belt:nth-child(2) .logo-track { animation-direction:reverse;animation-duration:54s; }
 .logo-belt:nth-child(3) .logo-track { animation-duration:51s; }
-.logo-belt:hover .logo-track,.logo-belt:focus-within .logo-track { animation-play-state:paused; }
+.logo-belt.is-paused .logo-track,.logo-belt:focus-within .logo-track { animation-play-state:paused; }
 .logo-sequence { display:flex;gap:var(--belt-gap);padding-right:var(--belt-gap); }
 .logo-card {
   display:block;width:calc((100vw - 152px)/5);height:132px;perspective:1100px;
@@ -827,7 +824,6 @@ nav::after {
       <p class="network-kicker">// Ecosystem directory</p>
       <h2 class="network-title" id="network-title">Companies in Motion</h2>
     </div>
-    <p class="network-intro">Hover over a company to discover what it does. Select any logo to visit its official website.</p>
   </header>
 
   <div class="logo-belts" aria-label="Participating company directory">
@@ -1215,6 +1211,12 @@ document.querySelectorAll('.logo-belt').forEach(belt=>{
   clone.setAttribute('aria-hidden','true');
   clone.querySelectorAll('a').forEach(link=>link.tabIndex=-1);
   track.appendChild(clone);
+  track.querySelectorAll('.logo-card').forEach(card=>{
+    card.addEventListener('mouseenter',()=>belt.classList.add('is-paused'));
+    card.addEventListener('mouseleave',()=>belt.classList.remove('is-paused'));
+    card.addEventListener('focusin',()=>belt.classList.add('is-paused'));
+    card.addEventListener('focusout',()=>belt.classList.remove('is-paused'));
+  });
 });
 
 // Decrypt text animation
