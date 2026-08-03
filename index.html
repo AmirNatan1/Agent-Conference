@@ -676,10 +676,10 @@ nav::after {
 }
 .logo-track {
   display:flex;width:max-content;will-change:transform;
-  animation:logo-belt-left 48s linear infinite;
+  animation:logo-belt-left 82s linear infinite;
 }
-.logo-belt:nth-child(2) .logo-track { animation-direction:reverse;animation-duration:54s; }
-.logo-belt:nth-child(3) .logo-track { animation-duration:51s; }
+.logo-belt:nth-child(2) .logo-track { animation-direction:reverse;animation-duration:88s; }
+.logo-belt:nth-child(3) .logo-track { animation-duration:80s; }
 .logo-belt.is-paused .logo-track { animation-play-state:paused; }
 .logo-sequence { display:flex;gap:var(--belt-gap);padding-right:var(--belt-gap); }
 .logo-card {
@@ -699,6 +699,14 @@ nav::after {
 .logo-front { background:#f2f1ed; }
 .logo-front.logo-front--dark { background:#0d1320; }
 .logo-front img { max-width:78%;max-height:68%;object-fit:contain; }
+.logo-front.logo-front--named {
+  box-sizing:border-box;flex-direction:column;gap:8px;padding:13px 12px 11px;
+}
+.logo-front.logo-front--named img { max-height:48%; }
+.logo-unit-name {
+  max-width:100%;color:#181820;text-align:center;font:600 9px/1.2 'JetBrains Mono',monospace;
+  letter-spacing:.055em;text-transform:uppercase;
+}
 .logo-back {
   box-sizing:border-box;flex-direction:column;align-items:flex-start;
   padding:16px 18px;background:#17171d;transform:rotateY(180deg);
@@ -890,6 +898,48 @@ nav::after {
               <span class="logo-face logo-back"><strong>EMI</strong><span>Manufacturer and supplier of modern explosives for Israel's civilian industrial market.</span></span>
             </span>
           </a>
+          <a class="logo-card" href="https://www.hyundai.com/worldwide/en/" target="_blank" rel="noopener noreferrer" aria-label="Visit Hyundai's website">
+            <span class="logo-card-inner">
+              <span class="logo-face logo-front logo-front--named"><img src="LOGOS/hyundai-logo-brand-symbol-with-name-blue-design-south-korean-car-automobile-illustration-free-vector.jpg" alt="Hyundai"><span class="logo-unit-name">Hyundai</span></span>
+              <span class="logo-face logo-back"><strong>Hyundai</strong><span>Global mobility company advancing electrified vehicles, software-defined mobility and future transportation.</span></span>
+            </span>
+          </a>
+          <a class="logo-card" href="https://www.vdlgroep.com/en" target="_blank" rel="noopener noreferrer" aria-label="Visit VDL Groep's website">
+            <span class="logo-card-inner">
+              <span class="logo-face logo-front logo-front--named"><img src="LOGOS/VDL-Logo.svg.png" alt="VDL"><span class="logo-unit-name">VDL Groep</span></span>
+              <span class="logo-face logo-back"><strong>VDL Groep</strong><span>International industrial family business active across hightech, mobility, energy, infratech and foodtech.</span></span>
+            </span>
+          </a>
+          <a class="logo-card" href="https://www.vdlgroep.com/en/news/vdl-groep-revenue-in-2025-slightly-down-earnings-recovered" target="_blank" rel="noopener noreferrer" aria-label="Visit VDL Defentec's website">
+            <span class="logo-card-inner">
+              <span class="logo-face logo-front logo-front--named"><img src="LOGOS/VDL-Logo.svg.png" alt="VDL Defentec"><span class="logo-unit-name">VDL Defentec</span></span>
+              <span class="logo-face logo-back"><strong>VDL Defentec</strong><span>Coordinates advanced industrial programs and manufacturing capacity across VDL and its technology partners.</span></span>
+            </span>
+          </a>
+          <a class="logo-card" href="https://www.vdlsystems.nl/en" target="_blank" rel="noopener noreferrer" aria-label="Visit VDL Systems' website">
+            <span class="logo-card-inner">
+              <span class="logo-face logo-front logo-front--named"><img src="LOGOS/VDL-Logo.svg.png" alt="VDL Systems"><span class="logo-unit-name">VDL Systems</span></span>
+              <span class="logo-face logo-back"><strong>VDL Systems</strong><span>Develops and manufactures complex production systems, machines and precision industrial assemblies.</span></span>
+            </span>
+          </a>
+          <a class="logo-card" href="https://www.vdletgprojects.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit VDL ETG Projects' website">
+            <span class="logo-card-inner">
+              <span class="logo-face logo-front logo-front--named"><img src="LOGOS/VDL-Logo.svg.png" alt="VDL ETG Projects"><span class="logo-unit-name">VDL ETG Projects</span></span>
+              <span class="logo-face logo-back"><strong>VDL ETG Projects</strong><span>Turnkey machine builder supporting complex mechatronic systems from development through worldwide service.</span></span>
+            </span>
+          </a>
+          <a class="logo-card" href="https://www.vdletg.com/en" target="_blank" rel="noopener noreferrer" aria-label="Visit VDL ETG's website">
+            <span class="logo-card-inner">
+              <span class="logo-face logo-front logo-front--named"><img src="LOGOS/VDL-Logo.svg.png" alt="VDL ETG"><span class="logo-unit-name">VDL ETG</span></span>
+              <span class="logo-face logo-back"><strong>VDL ETG</strong><span>Hightech systems supplier providing co-engineering, precision manufacturing, assembly and qualification.</span></span>
+            </span>
+          </a>
+          <a class="logo-card" href="https://www.vdltbpelectronics.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit VDL TBP Electronics' website">
+            <span class="logo-card-inner">
+              <span class="logo-face logo-front logo-front--named"><img src="LOGOS/VDL-Logo.svg.png" alt="VDL TBP Electronics"><span class="logo-unit-name">VDL TBP Electronics</span></span>
+              <span class="logo-face logo-back"><strong>VDL TBP</strong><span>Electronics manufacturing services for PCB assemblies, prototyping, testing, logistics and co-assembly.</span></span>
+            </span>
+          </a>
         </div>
       </div>
     </div>
@@ -957,6 +1007,48 @@ nav::after {
               <span class="logo-face logo-back"><strong>Venta</strong><span>Industrial ventilation, heating, large fans, smoke removal and HVAC project solutions.</span></span>
             </span>
           </a>
+          <a class="logo-card" href="https://www.hyundai.com/worldwide/en/brand-journal/mobility-solution/hyundai-cradle-optimism-through-innovation" target="_blank" rel="noopener noreferrer" aria-label="Visit Hyundai CRADLE's website">
+            <span class="logo-card-inner">
+              <span class="logo-face logo-front logo-front--named"><img src="LOGOS/hyundai-logo-brand-symbol-with-name-blue-design-south-korean-car-automobile-illustration-free-vector.jpg" alt="Hyundai CRADLE"><span class="logo-unit-name">Hyundai CRADLE</span></span>
+              <span class="logo-face logo-back"><strong>Hyundai CRADLE</strong><span>Global open-innovation platform connecting startups with mobility, AI, robotics, smart-city and clean-energy programs.</span></span>
+            </span>
+          </a>
+          <a class="logo-card" href="https://www.vdlparree.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit VDL Parree's website">
+            <span class="logo-card-inner">
+              <span class="logo-face logo-front logo-front--named"><img src="LOGOS/VDL-Logo.svg.png" alt="VDL Parree"><span class="logo-unit-name">VDL Parree</span></span>
+              <span class="logo-face logo-back"><strong>VDL Parree</strong><span>Specialist in high-end plastic injection-moulded components, assemblies and metal-plastic combinations.</span></span>
+            </span>
+          </a>
+          <a class="logo-card" href="https://www.vdlassembly.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit VDL Assembly's website">
+            <span class="logo-card-inner">
+              <span class="logo-face logo-front logo-front--named"><img src="LOGOS/VDL-Logo.svg.png" alt="VDL Assembly"><span class="logo-unit-name">VDL Assembly</span></span>
+              <span class="logo-face logo-back"><strong>VDL Assembly</strong><span>Co-develops, manufactures, assembles and tests products while managing logistics and project delivery.</span></span>
+            </span>
+          </a>
+          <a class="logo-card" href="https://www.vdlenergysystems.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit VDL Energy Systems' website">
+            <span class="logo-card-inner">
+              <span class="logo-face logo-front logo-front--named"><img src="LOGOS/VDL-Logo.svg.png" alt="VDL Energy Systems"><span class="logo-unit-name">VDL Energy Systems</span></span>
+              <span class="logo-face logo-back"><strong>VDL Energy Systems</strong><span>Develops and manufactures advanced systems and modules for energy conversion and sustainable power applications.</span></span>
+            </span>
+          </a>
+          <a class="logo-card" href="https://www.vdlkti.be/" target="_blank" rel="noopener noreferrer" aria-label="Visit VDL KTI's website">
+            <span class="logo-card-inner">
+              <span class="logo-face logo-front logo-front--named"><img src="LOGOS/VDL-Logo.svg.png" alt="VDL KTI"><span class="logo-unit-name">VDL KTI</span></span>
+              <span class="logo-face logo-back"><strong>VDL KTI</strong><span>Engineers and builds high-grade process equipment, welded structures and critical industrial vessels.</span></span>
+            </span>
+          </a>
+          <a class="logo-card" href="https://www.vdlklima.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit VDL Klima's website">
+            <span class="logo-card-inner">
+              <span class="logo-face logo-front logo-front--named"><img src="LOGOS/VDL-Logo.svg.png" alt="VDL Klima"><span class="logo-unit-name">VDL Klima</span></span>
+              <span class="logo-face logo-back"><strong>VDL Klima</strong><span>Produces high-precision components and assemblies for demanding hightech and cleanroom applications.</span></span>
+            </span>
+          </a>
+          <a class="logo-card" href="https://www.vdlets.nl/en" target="_blank" rel="noopener noreferrer" aria-label="Visit VDL ETS' website">
+            <span class="logo-card-inner">
+              <span class="logo-face logo-front logo-front--named"><img src="LOGOS/VDL-Logo.svg.png" alt="VDL ETS"><span class="logo-unit-name">VDL ETS</span></span>
+              <span class="logo-face logo-back"><strong>VDL ETS</strong><span>Develops autonomous, zero-emission, battery and embedded-software solutions for future mobility.</span></span>
+            </span>
+          </a>
         </div>
       </div>
     </div>
@@ -1016,6 +1108,42 @@ nav::after {
             <span class="logo-card-inner">
               <span class="logo-face logo-front"><img src="LOGOS/companies/caol.png" alt="CAOL, Carmel Olefins"></span>
               <span class="logo-face logo-back"><strong>CAOL</strong><span>Israel's producer of polyethylene and polypropylene materials for the plastics industry.</span></span>
+            </span>
+          </a>
+          <a class="logo-card" href="https://www.vdlfibertechindustries.com/en" target="_blank" rel="noopener noreferrer" aria-label="Visit VDL Fibertech Industries' website">
+            <span class="logo-card-inner">
+              <span class="logo-face logo-front logo-front--named"><img src="LOGOS/VDL-Logo.svg.png" alt="VDL Fibertech"><span class="logo-unit-name">VDL Fibertech</span></span>
+              <span class="logo-face logo-back"><strong>VDL Fibertech</strong><span>Designs and manufactures lightweight, customer-specific composite products from small to large series.</span></span>
+            </span>
+          </a>
+          <a class="logo-card" href="https://www.vdltimhapert.nl/" target="_blank" rel="noopener noreferrer" aria-label="Visit VDL TIM Hapert's website">
+            <span class="logo-card-inner">
+              <span class="logo-face logo-front logo-front--named"><img src="LOGOS/VDL-Logo.svg.png" alt="VDL TIM Hapert"><span class="logo-unit-name">VDL TIM Hapert</span></span>
+              <span class="logo-face logo-back"><strong>VDL TIM Hapert</strong><span>First-tier specialist in CNC machining, robotic processing and assembly of complex metal components.</span></span>
+            </span>
+          </a>
+          <a class="logo-card" href="https://www.vdleegtemetaal.nl/" target="_blank" rel="noopener noreferrer" aria-label="Visit VD Leegte Metaal's website">
+            <span class="logo-card-inner">
+              <span class="logo-face logo-front logo-front--named"><img src="LOGOS/VDL-Logo.svg.png" alt="VD Leegte Metaal"><span class="logo-unit-name">VD Leegte Metaal</span></span>
+              <span class="logo-face logo-back"><strong>VD Leegte Metaal</strong><span>Delivers heavy structures, complex welded assemblies and turnkey metal-engineering projects.</span></span>
+            </span>
+          </a>
+          <a class="logo-card" href="https://www.vdlmastsolutions.nl/" target="_blank" rel="noopener noreferrer" aria-label="Visit VDL Mast Solutions' website">
+            <span class="logo-card-inner">
+              <span class="logo-face logo-front logo-front--named"><img src="LOGOS/VDL-Logo.svg.png" alt="VDL Mast Solutions"><span class="logo-unit-name">VDL Mast Solutions</span></span>
+              <span class="logo-face logo-back"><strong>VDL Mast Solutions</strong><span>Designs, manufactures, installs and inspects lighting, overhead-line, camera and transmitter masts.</span></span>
+            </span>
+          </a>
+          <a class="logo-card" href="https://www.vdlkunststoffen.com/en" target="_blank" rel="noopener noreferrer" aria-label="Visit VDL GL Plastics' website">
+            <span class="logo-card-inner">
+              <span class="logo-face logo-front logo-front--named"><img src="LOGOS/VDL-Logo.svg.png" alt="VDL GL Plastics"><span class="logo-unit-name">VDL GL Plastics</span></span>
+              <span class="logo-face logo-back"><strong>VDL GL Plastics</strong><span>Produces high-quality automated injection-moulded parts, including advanced metal-plastic combinations.</span></span>
+            </span>
+          </a>
+          <a class="logo-card" href="https://www.vdlglprecision.nl/" target="_blank" rel="noopener noreferrer" aria-label="Visit VDL GL Precision's website">
+            <span class="logo-card-inner">
+              <span class="logo-face logo-front logo-front--named"><img src="LOGOS/VDL-Logo.svg.png" alt="VDL GL Precision"><span class="logo-unit-name">VDL GL Precision</span></span>
+              <span class="logo-face logo-back"><strong>VDL GL Precision</strong><span>Manufactures ultra-precise mechanical components and modules for semiconductor, optical and aerospace systems.</span></span>
             </span>
           </a>
         </div>
