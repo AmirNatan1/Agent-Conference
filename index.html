@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AgentConf Defense - The World's First Agents Conference</title>
+  <title>AgentConf Deep Tech - The World's First Agents Conference</title>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
@@ -279,85 +279,6 @@
       .steps,.grid2,.role-grid,.asset-strip,.community-inner{grid-template-columns:1fr;}
     }
   
-
-/* ── Industry grid (8 cells, 4 x 2) ── */
-.ind-grid{position:relative;width:100%;display:grid;grid-template-columns:repeat(4,1fr);
-  gap:2px;background:var(--border);border-bottom:1px solid var(--border);}
-.ind-cell{position:relative;overflow:hidden;background:#0A0A0C;aspect-ratio:4/3;}
-.ind-cell img{width:100%;height:100%;object-fit:cover;display:block;
-  filter:saturate(0) brightness(0.45) contrast(1.1);
-  transition:filter .45s ease, transform .45s ease;}
-.ind-cell:hover img{filter:saturate(0) brightness(0.62) contrast(1.15);transform:scale(1.04);}
-.ind-cell::after{content:'';position:absolute;inset:0;pointer-events:none;
-  background:linear-gradient(135deg,rgba(217,46,122,0.05),transparent 60%);
-  border:1px solid rgba(217,46,122,0.10);}
-.ind-label{position:absolute;inset:0;z-index:2;display:flex;align-items:center;justify-content:center;
-  text-align:center;padding:0 14px;pointer-events:none;
-  font-family:var(--mono);font-weight:800;text-transform:uppercase;
-  font-size:clamp(10px,1.05vw,15px);letter-spacing:.18em;line-height:1.5;
-  color:rgba(228,221,208,0.34);
-  text-shadow:0 2px 18px rgba(0,0,0,0.85);
-  transition:color .45s ease;}
-.ind-cell:hover .ind-label{color:rgba(228,221,208,0.52);}
-.ind-cell.no-img{background:
-  repeating-linear-gradient(135deg,#0A0A0C 0 10px,#0C0C10 10px 20px);}
-
-/* ── Partner logo belts ── */
-.belts-wrap{position:relative;z-index:1;padding:70px 0 78px;background:var(--bg);
-  border-bottom:1px solid var(--border);}
-.belts-head{text-align:center;margin-bottom:44px;padding:0 20px;}
-.belts-eyebrow{font:600 0.65rem/1 var(--mono);letter-spacing:.2em;color:var(--amber);
-  text-transform:uppercase;margin-bottom:.8rem;}
-.belts-title{font:800 2rem/1.1 var(--mono);letter-spacing:.12em;color:var(--text);
-  text-transform:uppercase;}
-.belts-sub{margin-top:14px;font-family:var(--mono);font-size:10px;letter-spacing:.14em;
-  color:var(--dim);text-transform:uppercase;}
-
-.belt{position:relative;overflow:hidden;margin:16px 0;
-  -webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);
-          mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);}
-/* 20 cards on the track (10 originals + 10 clones); 5 visible => track = 400% */
-.belt-track{display:flex;width:400%;animation:belt-scroll 46s linear infinite;}
-.belt.rev .belt-track{animation-direction:reverse;}
-.belt:hover .belt-track,.belt:focus-within .belt-track{animation-play-state:paused;}
-@keyframes belt-scroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
-
-.belt-card{flex:0 0 5%;padding:0 7px;perspective:1000px;}
-.belt-flip{position:relative;width:100%;height:142px;
-  transform-style:preserve-3d;transition:transform .6s cubic-bezier(.4,.2,.2,1);}
-.belt-card:hover .belt-flip,.belt-card:focus-within .belt-flip{transform:rotateY(180deg);}
-.belt-face{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
-  -webkit-backface-visibility:hidden;backface-visibility:hidden;
-  border-radius:3px;overflow:hidden;text-decoration:none;}
-.belt-front{background:#EFEDE6;border:1px solid rgba(255,255,255,0.10);padding:16px;}
-.belt-front img{max-width:100%;max-height:100%;object-fit:contain;display:block;}
-.belt-word{font:700 0.82rem/1.25 var(--mono);letter-spacing:.08em;color:#1a1a1e;
-  text-align:center;text-transform:uppercase;}
-.belt-back{transform:rotateY(180deg);background:#0A0A0C;
-  border:1px solid rgba(217,46,122,0.45);padding:13px 14px;flex-direction:column;overflow:hidden;
-  align-items:flex-start;justify-content:center;gap:7px;}
-.belt-back .bb-name{font:700 0.6rem/1 var(--mono);letter-spacing:.16em;color:var(--teal);
-  text-transform:uppercase;}
-.belt-back .bb-desc{font-family:'Outfit',sans-serif;font-size:0.665rem;line-height:1.42;
-  color:var(--text);opacity:.9;}
-.belt-back .bb-go{font:600 0.55rem/1 var(--mono);letter-spacing:.14em;color:var(--dim);
-  text-transform:uppercase;margin-top:2px;}
-
-@media(max-width:1100px){
-  .ind-grid{grid-template-columns:repeat(2,1fr);}
-  .belt-track{width:1000%;}          /* 2 visible */
-  .belt-flip{height:130px;}
-  .belts-title{font-size:1.5rem;}
-}
-@media(max-width:620px){
-  .belt-track{width:2000%;}          /* 1 visible */
-  .belt-back .bb-desc{font-size:0.72rem;}
-}
-@media(prefers-reduced-motion:reduce){
-  .belt-track{animation:none;}
-  .belt{overflow-x:auto;}
-}
-
 /* ── Compilation strip ── */
 .comp-strip { position:relative; width:100%; overflow:hidden; }
 .comp-img { width:100%; display:block; filter:saturate(0) brightness(0.45) contrast(1.1); }
@@ -695,6 +616,121 @@ nav::after {
 }
 .hero-sub { display:none; }
 
+/* Industry spectrum */
+.industry-showcase {
+  position:relative;z-index:1;background:#050507;
+  border-top:1px solid rgba(255,255,255,.08);
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.industry-grid {
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:2px;
+  background:#050507;
+}
+.industry-card {
+  position:relative;min-height:270px;overflow:hidden;isolation:isolate;
+  background:#111114;
+}
+.industry-card img {
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  filter:grayscale(1) brightness(.48) contrast(1.16);
+  transform:scale(1.015);
+  transition:transform .75s cubic-bezier(.22,1,.36,1),filter .75s ease;
+}
+.industry-card::after {
+  content:"";position:absolute;inset:0;z-index:1;
+  background:linear-gradient(180deg,rgba(0,0,0,.12),rgba(0,0,0,.32)),
+             radial-gradient(circle at center,transparent 0,rgba(0,0,0,.24) 76%);
+}
+.industry-card:hover img { transform:scale(1.065);filter:grayscale(1) brightness(.58) contrast(1.12); }
+.industry-name {
+  position:absolute;inset:0;z-index:2;display:grid;place-items:center;
+  padding:24px;text-align:center;text-transform:uppercase;
+  font-family:'Bebas Neue',sans-serif;font-size:clamp(24px,2.25vw,42px);
+  line-height:1.02;letter-spacing:.08em;color:rgba(218,218,222,.58);
+  text-shadow:0 3px 22px rgba(0,0,0,.88);pointer-events:none;
+}
+
+/* Moving company network */
+.company-network {
+  position:relative;z-index:1;overflow:hidden;padding:78px 0 88px;
+  background:linear-gradient(180deg,#0a0a0d 0%,#111116 50%,#09090c 100%);
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.network-head {
+  display:grid;grid-template-columns:1fr;
+  gap:0;align-items:end;padding:0 48px 38px;
+}
+.network-kicker {
+  margin:0 0 10px;color:#d92e7a;font:11px/1.2 'JetBrains Mono',monospace;
+  letter-spacing:.16em;text-transform:uppercase;
+}
+.network-title {
+  margin:0;font-family:'Bebas Neue',sans-serif;font-size:clamp(48px,6vw,86px);
+  line-height:.88;letter-spacing:.035em;color:#e8e2d7;text-transform:uppercase;
+}
+.logo-belts { display:grid;gap:16px; }
+.logo-belt {
+  --belt-gap:14px;position:relative;width:100%;overflow:hidden;padding:2px 0;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);
+}
+.logo-track {
+  display:flex;width:max-content;will-change:transform;
+  animation:logo-belt-left 48s linear infinite;
+}
+.logo-belt:nth-child(2) .logo-track { animation-direction:reverse;animation-duration:54s; }
+.logo-belt:nth-child(3) .logo-track { animation-duration:51s; }
+.logo-belt.is-paused .logo-track { animation-play-state:paused; }
+.logo-sequence { display:flex;gap:var(--belt-gap);padding-right:var(--belt-gap); }
+.logo-card {
+  display:block;width:calc((100vw - 152px)/5);height:132px;perspective:1100px;
+  color:#f2eee6;text-decoration:none;outline:none;
+}
+.logo-card-inner {
+  display:block;position:relative;width:100%;height:100%;transform-style:preserve-3d;
+  transition:transform .68s cubic-bezier(.2,.75,.2,1);
+}
+.logo-card:hover .logo-card-inner,.logo-card:focus-visible .logo-card-inner { transform:rotateY(180deg); }
+.logo-face {
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  overflow:hidden;border:1px solid rgba(255,255,255,.13);border-radius:3px;
+  -webkit-backface-visibility:hidden;backface-visibility:hidden;
+}
+.logo-front { background:#f2f1ed; }
+.logo-front.logo-front--dark { background:#0d1320; }
+.logo-front img { max-width:78%;max-height:68%;object-fit:contain; }
+.logo-back {
+  box-sizing:border-box;flex-direction:column;align-items:flex-start;
+  padding:16px 18px;background:#17171d;transform:rotateY(180deg);
+  border-color:rgba(217,46,122,.42);
+}
+.logo-back strong {
+  display:block;margin-bottom:8px;color:#d92e7a;font:12px/1.1 'JetBrains Mono',monospace;
+  letter-spacing:.08em;text-transform:uppercase;
+}
+.logo-back span { color:rgba(245,241,234,.82);font:11px/1.45 'JetBrains Mono',monospace; }
+@keyframes logo-belt-left { to { transform:translateX(-50%); } }
+
+@media(max-width:900px) {
+  .industry-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .industry-card { min-height:250px; }
+  .network-head { grid-template-columns:1fr;padding-inline:28px;gap:20px; }
+  .logo-card { width:calc((100vw - 86px)/3); }
+}
+@media(max-width:560px) {
+  .industry-card { min-height:190px; }
+  .industry-name { font-size:24px;padding:16px; }
+  .company-network { padding:62px 0 68px; }
+  .network-head { padding-inline:20px; }
+  .logo-card { width:calc((100vw - 54px)/2);height:122px; }
+  .logo-back { padding:13px 14px; }
+  .logo-back span { font-size:10px; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .logo-track { animation-play-state:paused; }
+  .industry-card img,.logo-card-inner { transition:none; }
+}
+
 </style>
 </head>
 <body>
@@ -713,7 +749,7 @@ nav::after {
     <span class="hero-main" data-decrypt="AGENTS CONFERENCE">AGENTS CONFERENCE</span>
   </div>
   <div class="hero-event-name">
-    <span class="hero-outline">DEFENSE TECH</span>
+    <span class="hero-outline">DEEP TECH</span>
     <div style="margin-top:16px;font-size:1.8em;letter-spacing:.2em;color:rgba(255,255,255,0.7);font-family:'Outfit',sans-serif;font-weight:700;">07.09.2026</div>
   </div>
   <div class="countdown">
@@ -744,782 +780,249 @@ nav::after {
   <a href="#register" class="nav-cta">Register →</a>
 </nav>
 
-<!-- ══ INDUSTRY GRID ══ -->
-<div class="ind-grid">
-  <div class="ind-cell">
-    <img src="INDUSTRIES/industry-4-0.jpg" alt="Industry 4.0" loading="lazy" onerror="this.remove();this.closest('.ind-cell').classList.add('no-img')">
-    <div class="ind-label">Industry 4.0</div>
+<!-- ══ COMPILATION STRIP ══ -->
+<section class="industry-showcase" aria-label="Industries represented at AgentConf">
+  <div class="industry-grid">
+    <article class="industry-card">
+      <img src="INDUSTRIES/industry-4-0.png" alt="Connected industrial machinery and smart manufacturing systems">
+      <span class="industry-name">Industry 4.0</span>
+    </article>
+    <article class="industry-card">
+      <img src="INDUSTRIES/physical-ai-robotics.png" alt="Humanoid robotics and physical artificial intelligence">
+      <span class="industry-name">Physical AI &amp; Robotics</span>
+    </article>
+    <article class="industry-card">
+      <img src="INDUSTRIES/deep-tech.png" alt="Advanced deep technology and autonomous systems">
+      <span class="industry-name">Deep Tech</span>
+    </article>
+    <article class="industry-card">
+      <img src="INDUSTRIES/energy-climate.png" alt="Renewable energy and climate technology infrastructure">
+      <span class="industry-name">Energy &amp; Climate</span>
+    </article>
+    <article class="industry-card">
+      <img src="INDUSTRIES/infrastructure.png" alt="Large-scale civil and digital infrastructure">
+      <span class="industry-name">Infrastructure</span>
+    </article>
+    <article class="industry-card">
+      <img src="INDUSTRIES/logistics-supply-chain.png" alt="Automated warehouse and logistics supply chain">
+      <span class="industry-name">Logistics &amp; Supply Chain</span>
+    </article>
+    <article class="industry-card">
+      <img src="INDUSTRIES/maritime.png" alt="Modern maritime port and cargo operations">
+      <span class="industry-name">Maritime</span>
+    </article>
+    <article class="industry-card">
+      <img src="INDUSTRIES/automotive-mobility.png" alt="Future automotive and mobility technology">
+      <span class="industry-name">Automotive &amp; Mobility</span>
+    </article>
   </div>
-  <div class="ind-cell">
-    <img src="INDUSTRIES/physical-ai-robotics.jpg" alt="Physical AI and Robotics" loading="lazy" onerror="this.remove();this.closest('.ind-cell').classList.add('no-img')">
-    <div class="ind-label">Physical AI &amp; Robotics</div>
-  </div>
-  <div class="ind-cell">
-    <img src="INDUSTRIES/defense.jpg" alt="Defense" loading="lazy" onerror="this.remove();this.closest('.ind-cell').classList.add('no-img')">
-    <div class="ind-label">Defense</div>
-  </div>
-  <div class="ind-cell">
-    <img src="INDUSTRIES/energy-climate.jpg" alt="Energy and Climate" loading="lazy" onerror="this.remove();this.closest('.ind-cell').classList.add('no-img')">
-    <div class="ind-label">Energy &amp; Climate</div>
-  </div>
-  <div class="ind-cell">
-    <img src="INDUSTRIES/infrastructure.jpg" alt="Infrastructure" loading="lazy" onerror="this.remove();this.closest('.ind-cell').classList.add('no-img')">
-    <div class="ind-label">Infrastructure</div>
-  </div>
-  <div class="ind-cell">
-    <img src="INDUSTRIES/logistics-supply-chain.jpg" alt="Logistics and Supply Chain" loading="lazy" onerror="this.remove();this.closest('.ind-cell').classList.add('no-img')">
-    <div class="ind-label">Logistics &amp; Supply Chain</div>
-  </div>
-  <div class="ind-cell">
-    <img src="INDUSTRIES/maritime.jpg" alt="Maritime" loading="lazy" onerror="this.remove();this.closest('.ind-cell').classList.add('no-img')">
-    <div class="ind-label">Maritime</div>
-  </div>
-  <div class="ind-cell">
-    <img src="INDUSTRIES/automotive-mobility.jpg" alt="Automotive and Mobility" loading="lazy" onerror="this.remove();this.closest('.ind-cell').classList.add('no-img')">
-    <div class="ind-label">Automotive &amp; Mobility</div>
-  </div>
-</div>
+</section>
 
-<!-- ══ PARTNER LOGO BELTS ══ -->
-<div class="belts-wrap">
-  <div class="belts-head">
-    <div class="belts-eyebrow">The Group</div>
-    <h2 class="belts-title">Companies In Motion</h2>
-    <div class="belts-sub">Hover to read · Click to visit</div>
-  </div>
-  <div class="belt">
-    <div class="belt-track">
-    <div class="belt-card">
-      <div class="belt-flip">
-        <a class="belt-face belt-front" href="https://en.maman-cargo.co.il/" target="_blank" rel="noopener noreferrer" aria-label="Maman">
-          <img src="LOGOS/companies/maman.png" alt="Maman" loading="lazy" onerror="var w=document.createElement('div');w.className='belt-word';w.textContent=this.alt;this.replaceWith(w);">
-        </a>
-        <a class="belt-face belt-back" href="https://en.maman-cargo.co.il/" target="_blank" rel="noopener noreferrer">
-          <span class="bb-name">Maman</span>
-          <span class="bb-desc">Air cargo solutions since 1974 &mdash; full-service handling, 24-hour support and stringent security across Israel&rsquo;s airports.</span>
-          <span class="bb-go">Visit site ↗</span>
-        </a>
+<section class="company-network" aria-labelledby="network-title">
+  <header class="network-head">
+    <div>
+      <p class="network-kicker">// Ecosystem directory</p>
+      <h2 class="network-title" id="network-title">Companies in Motion</h2>
+    </div>
+  </header>
+
+  <div class="logo-belts" aria-label="Participating company directory">
+    <div class="logo-belt">
+      <div class="logo-track">
+        <div class="logo-sequence">
+          <a class="logo-card" href="https://en.maman-cargo.co.il/" target="_blank" rel="noopener noreferrer" aria-label="Visit Maman's website">
+            <span class="logo-card-inner">
+              <span class="logo-face logo-front"><img src="LOGOS/companies/maman.jpg" alt="Maman"></span>
+              <span class="logo-face logo-back"><strong>Maman</strong><span>Full-service air-cargo handling, logistics, security and around-the-clock operational support.</span></span>
+            </span>
+          </a>
+          <a class="logo-card" href="https://archive2000.co.il/" target="_blank" rel="noopener noreferrer" aria-label="Visit Archive2000's website">
+            <span class="logo-card-inner">
+              <span class="logo-face logo-front"><img src="LOGOS/companies/archive2000.jpg" alt="Archive2000"></span>
+              <span class="logo-face logo-back"><strong>Archive2000</strong><span>Secure physical and digital archiving, scanning, retrieval, destruction and scan-on-demand services.</span></span>
+            </span>
+          </a>
+          <a class="logo-card" href="https://globus-intr.co.il/?lang=en" target="_blank" rel="noopener noreferrer" aria-label="Visit Globus's website">
+            <span class="logo-card-inner">
+              <span class="logo-face logo-front"><img src="LOGOS/companies/globus.png" alt="Globus"></span>
+              <span class="logo-face logo-back"><strong>Globus</strong><span>Nationwide logistics, distribution, relocation, specialist packaging and complex project services.</span></span>
+            </span>
+          </a>
+          <a class="logo-card" href="https://www.tal-limousine.com/en/" target="_blank" rel="noopener noreferrer" aria-label="Visit Tal Limousine's website">
+            <span class="logo-card-inner">
+              <span class="logo-face logo-front"><img src="LOGOS/companies/tal-limousine.jpg" alt="Tal Limousine"></span>
+              <span class="logo-face logo-back"><strong>Tal Limousine</strong><span>Premium VIP transportation in Israel and abroad, with an extensive range of vehicles.</span></span>
+            </span>
+          </a>
+          <a class="logo-card" href="https://www.logisticare.co.il/" target="_blank" rel="noopener noreferrer" aria-label="Visit Logisticare's website">
+            <span class="logo-card-inner">
+              <span class="logo-face logo-front"><img src="LOGOS/companies/logisticare.jpg" alt="Logisticare"></span>
+              <span class="logo-face logo-back"><strong>Logisticare</strong><span>End-to-end outsourced logistics and value-chain operations across a nationwide center network.</span></span>
+            </span>
+          </a>
+          <a class="logo-card" href="https://laufer.group/" target="_blank" rel="noopener noreferrer" aria-label="Visit Laufer's website">
+            <span class="logo-card-inner">
+              <span class="logo-face logo-front"><img src="LOGOS/companies/laufer.jpg" alt="Laufer"></span>
+              <span class="logo-face logo-back"><strong>Laufer</strong><span>Aircraft ground handling for commercial airlines and VIP flights throughout Israel.</span></span>
+            </span>
+          </a>
+          <a class="logo-card" href="https://www.taavura.com/our-activities/logistics-road-haulage/road-haulage-2/taavura-car-transport-division/" target="_blank" rel="noopener noreferrer" aria-label="Visit Movilit's website">
+            <span class="logo-card-inner">
+              <span class="logo-face logo-front"><img src="LOGOS/companies/movilit.jpg" alt="Car Transport Division, Movilit"></span>
+              <span class="logo-face logo-back"><strong>Movilit</strong><span>Modern vehicle transport from Israel's ports to importers, dealerships and storage sites.</span></span>
+            </span>
+          </a>
+          <a class="logo-card" href="https://www.taavuraeng.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit Engineering Projects Division's website">
+            <span class="logo-card-inner">
+              <span class="logo-face logo-front"><img src="LOGOS/companies/engineering-projects.png" alt="Engineering Projects Division"></span>
+              <span class="logo-face logo-back"><strong>Engineering Projects</strong><span>Heavy haulage, engineered lifting and special projects using cranes of up to 700 tonnes.</span></span>
+            </span>
+          </a>
+          <a class="logo-card" href="https://www.taavura.com/our-activities/industry-infrastructure/earth-moving-mining/" target="_blank" rel="noopener noreferrer" aria-label="Visit Earthmoving Division's website">
+            <span class="logo-card-inner">
+              <span class="logo-face logo-front"><img src="LOGOS/companies/earthmoving.png" alt="Earthmoving Division"></span>
+              <span class="logo-face logo-back"><strong>Earthmoving Division</strong><span>Heavy machinery and contracting for infrastructure, mining, quarrying and engineering works.</span></span>
+            </span>
+          </a>
+          <a class="logo-card" href="https://explosives.co.il/" target="_blank" rel="noopener noreferrer" aria-label="Visit EMI's website">
+            <span class="logo-card-inner">
+              <span class="logo-face logo-front"><img src="LOGOS/companies/emi.jpg" alt="EMI"></span>
+              <span class="logo-face logo-back"><strong>EMI</strong><span>Manufacturer and supplier of modern explosives for Israel's civilian industrial market.</span></span>
+            </span>
+          </a>
+        </div>
       </div>
     </div>
-    <div class="belt-card">
-      <div class="belt-flip">
-        <a class="belt-face belt-front" href="https://www.archive2000.co.il/" target="_blank" rel="noopener noreferrer" aria-label="Archive2000">
-          <img src="LOGOS/companies/archive2000.png" alt="Archive2000" loading="lazy" onerror="var w=document.createElement('div');w.className='belt-word';w.textContent=this.alt;this.replaceWith(w);">
-        </a>
-        <a class="belt-face belt-back" href="https://www.archive2000.co.il/" target="_blank" rel="noopener noreferrer">
-          <span class="bb-name">Archive2000</span>
-          <span class="bb-desc">One of Israel&rsquo;s leading archiving companies: digital document storage, scan-on-demand and secure destruction.</span>
-          <span class="bb-go">Visit site ↗</span>
-        </a>
+
+    <div class="logo-belt">
+      <div class="logo-track">
+        <div class="logo-sequence">
+          <a class="logo-card" href="https://www.taavura.com/our-activities/heavy-vehicles-distribution-in-israel/trucks/uti/" target="_blank" rel="noopener noreferrer" aria-label="Visit UTI's website">
+            <span class="logo-card-inner">
+              <span class="logo-face logo-front"><img src="LOGOS/companies/uti.jpg" alt="UTI"></span>
+              <span class="logo-face logo-back"><strong>UTI</strong><span>Distributor of ISUZU trucks and buses and SUNWIN electric buses for the Israeli market.</span></span>
+            </span>
+          </a>
+          <a class="logo-card" href="https://daf.co.il/" target="_blank" rel="noopener noreferrer" aria-label="Visit Tashtit Division's website">
+            <span class="logo-card-inner">
+              <span class="logo-face logo-front"><img src="LOGOS/companies/tashtit.png" alt="Tashtit Division"></span>
+              <span class="logo-face logo-back"><strong>Tashtit Division</strong><span>Heavy-vehicle, bus, crane and trailer distribution with leasing, maintenance and aftersales.</span></span>
+            </span>
+          </a>
+          <a class="logo-card" href="https://www.taavura.com/our-subsidiaries-contact/" target="_blank" rel="noopener noreferrer" aria-label="Visit Yozma Galilee's website">
+            <span class="logo-card-inner">
+              <span class="logo-face logo-front"><img src="LOGOS/companies/yozma.jpg" alt="Yozma Galilee"></span>
+              <span class="logo-face logo-back"><strong>Yozma Galilee</strong><span>Bulk transport for stone, clay, quarry materials and construction base materials.</span></span>
+            </span>
+          </a>
+          <a class="logo-card" href="https://www.knegev.co.il/" target="_blank" rel="noopener noreferrer" aria-label="Visit Hanegev and Arava Transportation's website">
+            <span class="logo-card-inner">
+              <span class="logo-face logo-front"><img src="LOGOS/companies/hanegev.jpg" alt="Hanegev and Arava Transportation"></span>
+              <span class="logo-face logo-back"><strong>Hanegev &amp; Arava</strong><span>Agricultural, bulk, container, fuel and general transport backed by regional logistics centers.</span></span>
+            </span>
+          </a>
+          <a class="logo-card" href="https://www.galilmaaravi.co.il/" target="_blank" rel="noopener noreferrer" aria-label="Visit West Galilee's website">
+            <span class="logo-card-inner">
+              <span class="logo-face logo-front"><img src="LOGOS/companies/west-galilee.png" alt="West Galilee"></span>
+              <span class="logo-face logo-back"><strong>West Galilee</strong><span>Port containers, general cargo, heavy equipment and agricultural transport with terminal services.</span></span>
+            </span>
+          </a>
+          <a class="logo-card" href="https://www.emekhayarden.co.il/" target="_blank" rel="noopener noreferrer" aria-label="Visit Emek HaYarden's website">
+            <span class="logo-card-inner">
+              <span class="logo-face logo-front"><img src="LOGOS/companies/emek-hayarden.png" alt="Emek HaYarden"></span>
+              <span class="logo-face logo-back"><strong>Emek HaYarden</strong><span>Agricultural, feed, container, fuel, bulk and general transport services.</span></span>
+            </span>
+          </a>
+          <a class="logo-card" href="https://www.taavura.com/our-activities/logistics-road-haulage/" target="_blank" rel="noopener noreferrer" aria-label="Visit Tifzoret's website">
+            <span class="logo-card-inner">
+              <span class="logo-face logo-front"><img src="LOGOS/companies/tifzoret.png" alt="Tifzoret"></span>
+              <span class="logo-face logo-back"><strong>Tifzoret</strong><span>Bulk cement transportation for Israel's construction and industrial supply chain.</span></span>
+            </span>
+          </a>
+          <a class="logo-card" href="https://www.taavura-hsm.co.il/" target="_blank" rel="noopener noreferrer" aria-label="Visit Taavura Tours's website">
+            <span class="logo-card-inner">
+              <span class="logo-face logo-front"><img src="LOGOS/companies/taavura-tours.jpg" alt="Taavura Tours"></span>
+              <span class="logo-face logo-back"><strong>Taavura Tours</strong><span>Nationwide employee and special transportation using taxis, vans and buses.</span></span>
+            </span>
+          </a>
+          <a class="logo-card" href="https://www.shmerling.co.il/" target="_blank" rel="noopener noreferrer" aria-label="Visit Shmerling's website">
+            <span class="logo-card-inner">
+              <span class="logo-face logo-front"><img src="LOGOS/companies/shmerling.png" alt="Shmerling"></span>
+              <span class="logo-face logo-back"><strong>Shmerling</strong><span>Generator design, manufacturing, installation, maintenance and spare-parts services.</span></span>
+            </span>
+          </a>
+          <a class="logo-card" href="https://www.venta.co.il/" target="_blank" rel="noopener noreferrer" aria-label="Visit Venta's website">
+            <span class="logo-card-inner">
+              <span class="logo-face logo-front"><img src="LOGOS/companies/venta.jpg" alt="Venta"></span>
+              <span class="logo-face logo-back"><strong>Venta</strong><span>Industrial ventilation, heating, large fans, smoke removal and HVAC project solutions.</span></span>
+            </span>
+          </a>
+        </div>
       </div>
     </div>
-    <div class="belt-card">
-      <div class="belt-flip">
-        <a class="belt-face belt-front" href="https://globus-intr.co.il/" target="_blank" rel="noopener noreferrer" aria-label="Globus">
-          <img src="LOGOS/companies/globus.png" alt="Globus" loading="lazy" onerror="var w=document.createElement('div');w.className='belt-word';w.textContent=this.alt;this.replaceWith(w);">
-        </a>
-        <a class="belt-face belt-back" href="https://globus-intr.co.il/" target="_blank" rel="noopener noreferrer">
-          <span class="bb-name">Globus</span>
-          <span class="bb-desc">Advanced logistics solutions &mdash; nationwide logistics centres, distribution, hazardous-materials handling and specialist relocation.</span>
-          <span class="bb-go">Visit site ↗</span>
-        </a>
+
+    <div class="logo-belt">
+      <div class="logo-track">
+        <div class="logo-sequence">
+          <a class="logo-card" href="https://www.taavura.com/our-subsidiaries-contact/" target="_blank" rel="noopener noreferrer" aria-label="Visit Ganei Hadas's website">
+            <span class="logo-card-inner">
+              <span class="logo-face logo-front"><img src="LOGOS/companies/ganei-hadas.jpg" alt="Ganei Hadas"></span>
+              <span class="logo-face logo-back"><strong>Ganei Hadas</strong><span>Advanced household-waste landfill operations at the Dudaim and Ganei Hadas sites.</span></span>
+            </span>
+          </a>
+          <a class="logo-card" href="https://www.grandautomotive.eu/" target="_blank" rel="noopener noreferrer" aria-label="Visit GrandAuto's website">
+            <span class="logo-card-inner">
+              <span class="logo-face logo-front"><img src="LOGOS/companies/grandauto.png" alt="GrandAuto"></span>
+              <span class="logo-face logo-back"><strong>GrandAuto</strong><span>Automotive distribution across Central and Eastern Europe and the Adriatic-Balkan region.</span></span>
+            </span>
+          </a>
+          <a class="logo-card" href="https://www.medone.co.il/" target="_blank" rel="noopener noreferrer" aria-label="Visit MedOne's website">
+            <span class="logo-card-inner">
+              <span class="logo-face logo-front logo-front--dark"><img src="LOGOS/companies/medone.svg" alt="MedOne"></span>
+              <span class="logo-face logo-back"><strong>MedOne</strong><span>Secure colocation, sovereign cloud and hybrid data-center infrastructure for sensitive workloads.</span></span>
+            </span>
+          </a>
+          <a class="logo-card" href="https://en.tikshoov.co.il/" target="_blank" rel="noopener noreferrer" aria-label="Visit Tikshoov's website">
+            <span class="logo-card-inner">
+              <span class="logo-face logo-front"><img src="LOGOS/companies/tikshoov.png" alt="Tikshoov"></span>
+              <span class="logo-face logo-back"><strong>Tikshoov</strong><span>Technology-led outsourced contact centers for customer service, support and sales.</span></span>
+            </span>
+          </a>
+          <a class="logo-card" href="https://en.tikshoov.co.il/our-group/seeu" target="_blank" rel="noopener noreferrer" aria-label="Visit SEEU's website">
+            <span class="logo-card-inner">
+              <span class="logo-face logo-front"><img src="LOGOS/companies/seeu.jpg" alt="SEEU"></span>
+              <span class="logo-face logo-back"><strong>SEEU</strong><span>Smart surveillance centers combining omnichannel operations with professional security expertise.</span></span>
+            </span>
+          </a>
+          <a class="logo-card" href="https://www.ups.com/il/en/" target="_blank" rel="noopener noreferrer" aria-label="Visit UPS's website">
+            <span class="logo-card-inner">
+              <span class="logo-face logo-front"><img src="LOGOS/companies/ups.svg" alt="UPS"></span>
+              <span class="logo-face logo-back"><strong>UPS</strong><span>Global package delivery, freight and end-to-end supply-chain management.</span></span>
+            </span>
+          </a>
+          <a class="logo-card" href="https://www.h-o.co.il/" target="_blank" rel="noopener noreferrer" aria-label="Visit H and O's website">
+            <span class="logo-card-inner">
+              <span class="logo-face logo-front"><img src="LOGOS/companies/h-o.png" alt="H and O"></span>
+              <span class="logo-face logo-back"><strong>H&amp;O</strong><span>A leading family fashion, sportswear and lifestyle department-store chain.</span></span>
+            </span>
+          </a>
+          <a class="logo-card" href="https://www.gadiv.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit Gadiv's website">
+            <span class="logo-card-inner">
+              <span class="logo-face logo-front"><img src="LOGOS/companies/gadiv.png" alt="Gadiv"></span>
+              <span class="logo-face logo-back"><strong>Gadiv</strong><span>Bazan subsidiary producing aromatic raw materials for plastics and chemical manufacturing.</span></span>
+            </span>
+          </a>
+          <a class="logo-card" href="https://www.carmel-olefins.co.il/" target="_blank" rel="noopener noreferrer" aria-label="Visit CAOL's website">
+            <span class="logo-card-inner">
+              <span class="logo-face logo-front"><img src="LOGOS/companies/caol.png" alt="CAOL, Carmel Olefins"></span>
+              <span class="logo-face logo-back"><strong>CAOL</strong><span>Israel's producer of polyethylene and polypropylene materials for the plastics industry.</span></span>
+            </span>
+          </a>
+        </div>
       </div>
-    </div>
-    <div class="belt-card">
-      <div class="belt-flip">
-        <a class="belt-face belt-front" href="https://www.tal-limousine.com/" target="_blank" rel="noopener noreferrer" aria-label="Tal Limousine">
-          <img src="LOGOS/companies/tal-limousine.png" alt="Tal Limousine" loading="lazy" onerror="var w=document.createElement('div');w.className='belt-word';w.textContent=this.alt;this.replaceWith(w);">
-        </a>
-        <a class="belt-face belt-back" href="https://www.tal-limousine.com/" target="_blank" rel="noopener noreferrer">
-          <span class="bb-name">Tal Limousine</span>
-          <span class="bb-desc">Israel&rsquo;s leading VIP transportation company since 1989, providing world-class chauffeur services across every vehicle class.</span>
-          <span class="bb-go">Visit site ↗</span>
-        </a>
-      </div>
-    </div>
-    <div class="belt-card">
-      <div class="belt-flip">
-        <a class="belt-face belt-front" href="https://logisticare.co.il/" target="_blank" rel="noopener noreferrer" aria-label="Logisticare">
-          <img src="LOGOS/companies/logisticare.png" alt="Logisticare" loading="lazy" onerror="var w=document.createElement('div');w.className='belt-word';w.textContent=this.alt;this.replaceWith(w);">
-        </a>
-        <a class="belt-face belt-back" href="https://logisticare.co.il/" target="_blank" rel="noopener noreferrer">
-          <span class="bb-name">Logisticare</span>
-          <span class="bb-desc">Israel&rsquo;s first third-party logistics company, operating 13 logistics centres across 300 dunams of ground.</span>
-          <span class="bb-go">Visit site ↗</span>
-        </a>
-      </div>
-    </div>
-    <div class="belt-card">
-      <div class="belt-flip">
-        <a class="belt-face belt-front" href="https://www.laufer.group/" target="_blank" rel="noopener noreferrer" aria-label="Laufer">
-          <img src="LOGOS/companies/laufer.png" alt="Laufer" loading="lazy" onerror="var w=document.createElement('div');w.className='belt-word';w.textContent=this.alt;this.replaceWith(w);">
-        </a>
-        <a class="belt-face belt-back" href="https://www.laufer.group/" target="_blank" rel="noopener noreferrer">
-          <span class="bb-name">Laufer</span>
-          <span class="bb-desc">Israel&rsquo;s leading aircraft ground-handling group, serving 6 million passengers and 26,000 flights a year.</span>
-          <span class="bb-go">Visit site ↗</span>
-        </a>
-      </div>
-    </div>
-    <div class="belt-card">
-      <div class="belt-flip">
-        <a class="belt-face belt-front" href="https://www.taavura.com/our-activities/logistics-road-haulage/road-haulage-2/taavura-car-transport-division/" target="_blank" rel="noopener noreferrer" aria-label="Movilit">
-          <img src="LOGOS/companies/movilit.png" alt="Movilit" loading="lazy" onerror="var w=document.createElement('div');w.className='belt-word';w.textContent=this.alt;this.replaceWith(w);">
-        </a>
-        <a class="belt-face belt-back" href="https://www.taavura.com/our-activities/logistics-road-haulage/road-haulage-2/taavura-car-transport-division/" target="_blank" rel="noopener noreferrer">
-          <span class="bb-name">Movilit</span>
-          <span class="bb-desc">Taavura&rsquo;s car transport division, moving vehicles from the ports of Ashdod, Eilat and Haifa to importer sites nationwide.</span>
-          <span class="bb-go">Visit site ↗</span>
-        </a>
-      </div>
-    </div>
-    <div class="belt-card">
-      <div class="belt-flip">
-        <a class="belt-face belt-front" href="https://www.taavuraeng.com/" target="_blank" rel="noopener noreferrer" aria-label="Engineering Projects">
-          <img src="LOGOS/companies/engineering-projects.png" alt="Engineering Projects" loading="lazy" onerror="var w=document.createElement('div');w.className='belt-word';w.textContent=this.alt;this.replaceWith(w);">
-        </a>
-        <a class="belt-face belt-back" href="https://www.taavuraeng.com/" target="_blank" rel="noopener noreferrer">
-          <span class="bb-name">Engineering Projects</span>
-          <span class="bb-desc">Engineering planning, heavy haulage and special transport, operating a modern fleet of mobile cranes up to 700 tons.</span>
-          <span class="bb-go">Visit site ↗</span>
-        </a>
-      </div>
-    </div>
-    <div class="belt-card">
-      <div class="belt-flip">
-        <a class="belt-face belt-front" href="https://www.taavura.com/our-activities/industry-infrastructure/earth-moving-mining/" target="_blank" rel="noopener noreferrer" aria-label="Earthmoving">
-          <img src="LOGOS/companies/earthmoving.png" alt="Earthmoving" loading="lazy" onerror="var w=document.createElement('div');w.className='belt-word';w.textContent=this.alt;this.replaceWith(w);">
-        </a>
-        <a class="belt-face belt-back" href="https://www.taavura.com/our-activities/industry-infrastructure/earth-moving-mining/" target="_blank" rel="noopener noreferrer">
-          <span class="bb-name">Earthmoving</span>
-          <span class="bb-desc">One of Israel&rsquo;s largest earthworks contractors &mdash; infrastructure, mining and quarry operations with a heavy machinery fleet.</span>
-          <span class="bb-go">Visit site ↗</span>
-        </a>
-      </div>
-    </div>
-    <div class="belt-card">
-      <div class="belt-flip">
-        <a class="belt-face belt-front" href="https://explosives.co.il/" target="_blank" rel="noopener noreferrer" aria-label="EMI">
-          <img src="LOGOS/companies/emi.png" alt="EMI" loading="lazy" onerror="var w=document.createElement('div');w.className='belt-word';w.textContent=this.alt;this.replaceWith(w);">
-        </a>
-        <a class="belt-face belt-back" href="https://explosives.co.il/" target="_blank" rel="noopener noreferrer">
-          <span class="bb-name">EMI</span>
-          <span class="bb-desc">The Explosives Factory, established 1952 &mdash; Israel&rsquo;s sole supplier of modern explosives for civilian use.</span>
-          <span class="bb-go">Visit site ↗</span>
-        </a>
-      </div>
-    </div>
-    <div class="belt-card">
-      <div class="belt-flip">
-        <a class="belt-face belt-front" href="https://en.maman-cargo.co.il/" target="_blank" rel="noopener noreferrer" aria-label="Maman">
-          <img src="LOGOS/companies/maman.png" alt="Maman" loading="lazy" onerror="var w=document.createElement('div');w.className='belt-word';w.textContent=this.alt;this.replaceWith(w);">
-        </a>
-        <a class="belt-face belt-back" href="https://en.maman-cargo.co.il/" target="_blank" rel="noopener noreferrer">
-          <span class="bb-name">Maman</span>
-          <span class="bb-desc">Air cargo solutions since 1974 &mdash; full-service handling, 24-hour support and stringent security across Israel&rsquo;s airports.</span>
-          <span class="bb-go">Visit site ↗</span>
-        </a>
-      </div>
-    </div>
-    <div class="belt-card">
-      <div class="belt-flip">
-        <a class="belt-face belt-front" href="https://www.archive2000.co.il/" target="_blank" rel="noopener noreferrer" aria-label="Archive2000">
-          <img src="LOGOS/companies/archive2000.png" alt="Archive2000" loading="lazy" onerror="var w=document.createElement('div');w.className='belt-word';w.textContent=this.alt;this.replaceWith(w);">
-        </a>
-        <a class="belt-face belt-back" href="https://www.archive2000.co.il/" target="_blank" rel="noopener noreferrer">
-          <span class="bb-name">Archive2000</span>
-          <span class="bb-desc">One of Israel&rsquo;s leading archiving companies: digital document storage, scan-on-demand and secure destruction.</span>
-          <span class="bb-go">Visit site ↗</span>
-        </a>
-      </div>
-    </div>
-    <div class="belt-card">
-      <div class="belt-flip">
-        <a class="belt-face belt-front" href="https://globus-intr.co.il/" target="_blank" rel="noopener noreferrer" aria-label="Globus">
-          <img src="LOGOS/companies/globus.png" alt="Globus" loading="lazy" onerror="var w=document.createElement('div');w.className='belt-word';w.textContent=this.alt;this.replaceWith(w);">
-        </a>
-        <a class="belt-face belt-back" href="https://globus-intr.co.il/" target="_blank" rel="noopener noreferrer">
-          <span class="bb-name">Globus</span>
-          <span class="bb-desc">Advanced logistics solutions &mdash; nationwide logistics centres, distribution, hazardous-materials handling and specialist relocation.</span>
-          <span class="bb-go">Visit site ↗</span>
-        </a>
-      </div>
-    </div>
-    <div class="belt-card">
-      <div class="belt-flip">
-        <a class="belt-face belt-front" href="https://www.tal-limousine.com/" target="_blank" rel="noopener noreferrer" aria-label="Tal Limousine">
-          <img src="LOGOS/companies/tal-limousine.png" alt="Tal Limousine" loading="lazy" onerror="var w=document.createElement('div');w.className='belt-word';w.textContent=this.alt;this.replaceWith(w);">
-        </a>
-        <a class="belt-face belt-back" href="https://www.tal-limousine.com/" target="_blank" rel="noopener noreferrer">
-          <span class="bb-name">Tal Limousine</span>
-          <span class="bb-desc">Israel&rsquo;s leading VIP transportation company since 1989, providing world-class chauffeur services across every vehicle class.</span>
-          <span class="bb-go">Visit site ↗</span>
-        </a>
-      </div>
-    </div>
-    <div class="belt-card">
-      <div class="belt-flip">
-        <a class="belt-face belt-front" href="https://logisticare.co.il/" target="_blank" rel="noopener noreferrer" aria-label="Logisticare">
-          <img src="LOGOS/companies/logisticare.png" alt="Logisticare" loading="lazy" onerror="var w=document.createElement('div');w.className='belt-word';w.textContent=this.alt;this.replaceWith(w);">
-        </a>
-        <a class="belt-face belt-back" href="https://logisticare.co.il/" target="_blank" rel="noopener noreferrer">
-          <span class="bb-name">Logisticare</span>
-          <span class="bb-desc">Israel&rsquo;s first third-party logistics company, operating 13 logistics centres across 300 dunams of ground.</span>
-          <span class="bb-go">Visit site ↗</span>
-        </a>
-      </div>
-    </div>
-    <div class="belt-card">
-      <div class="belt-flip">
-        <a class="belt-face belt-front" href="https://www.laufer.group/" target="_blank" rel="noopener noreferrer" aria-label="Laufer">
-          <img src="LOGOS/companies/laufer.png" alt="Laufer" loading="lazy" onerror="var w=document.createElement('div');w.className='belt-word';w.textContent=this.alt;this.replaceWith(w);">
-        </a>
-        <a class="belt-face belt-back" href="https://www.laufer.group/" target="_blank" rel="noopener noreferrer">
-          <span class="bb-name">Laufer</span>
-          <span class="bb-desc">Israel&rsquo;s leading aircraft ground-handling group, serving 6 million passengers and 26,000 flights a year.</span>
-          <span class="bb-go">Visit site ↗</span>
-        </a>
-      </div>
-    </div>
-    <div class="belt-card">
-      <div class="belt-flip">
-        <a class="belt-face belt-front" href="https://www.taavura.com/our-activities/logistics-road-haulage/road-haulage-2/taavura-car-transport-division/" target="_blank" rel="noopener noreferrer" aria-label="Movilit">
-          <img src="LOGOS/companies/movilit.png" alt="Movilit" loading="lazy" onerror="var w=document.createElement('div');w.className='belt-word';w.textContent=this.alt;this.replaceWith(w);">
-        </a>
-        <a class="belt-face belt-back" href="https://www.taavura.com/our-activities/logistics-road-haulage/road-haulage-2/taavura-car-transport-division/" target="_blank" rel="noopener noreferrer">
-          <span class="bb-name">Movilit</span>
-          <span class="bb-desc">Taavura&rsquo;s car transport division, moving vehicles from the ports of Ashdod, Eilat and Haifa to importer sites nationwide.</span>
-          <span class="bb-go">Visit site ↗</span>
-        </a>
-      </div>
-    </div>
-    <div class="belt-card">
-      <div class="belt-flip">
-        <a class="belt-face belt-front" href="https://www.taavuraeng.com/" target="_blank" rel="noopener noreferrer" aria-label="Engineering Projects">
-          <img src="LOGOS/companies/engineering-projects.png" alt="Engineering Projects" loading="lazy" onerror="var w=document.createElement('div');w.className='belt-word';w.textContent=this.alt;this.replaceWith(w);">
-        </a>
-        <a class="belt-face belt-back" href="https://www.taavuraeng.com/" target="_blank" rel="noopener noreferrer">
-          <span class="bb-name">Engineering Projects</span>
-          <span class="bb-desc">Engineering planning, heavy haulage and special transport, operating a modern fleet of mobile cranes up to 700 tons.</span>
-          <span class="bb-go">Visit site ↗</span>
-        </a>
-      </div>
-    </div>
-    <div class="belt-card">
-      <div class="belt-flip">
-        <a class="belt-face belt-front" href="https://www.taavura.com/our-activities/industry-infrastructure/earth-moving-mining/" target="_blank" rel="noopener noreferrer" aria-label="Earthmoving">
-          <img src="LOGOS/companies/earthmoving.png" alt="Earthmoving" loading="lazy" onerror="var w=document.createElement('div');w.className='belt-word';w.textContent=this.alt;this.replaceWith(w);">
-        </a>
-        <a class="belt-face belt-back" href="https://www.taavura.com/our-activities/industry-infrastructure/earth-moving-mining/" target="_blank" rel="noopener noreferrer">
-          <span class="bb-name">Earthmoving</span>
-          <span class="bb-desc">One of Israel&rsquo;s largest earthworks contractors &mdash; infrastructure, mining and quarry operations with a heavy machinery fleet.</span>
-          <span class="bb-go">Visit site ↗</span>
-        </a>
-      </div>
-    </div>
-    <div class="belt-card">
-      <div class="belt-flip">
-        <a class="belt-face belt-front" href="https://explosives.co.il/" target="_blank" rel="noopener noreferrer" aria-label="EMI">
-          <img src="LOGOS/companies/emi.png" alt="EMI" loading="lazy" onerror="var w=document.createElement('div');w.className='belt-word';w.textContent=this.alt;this.replaceWith(w);">
-        </a>
-        <a class="belt-face belt-back" href="https://explosives.co.il/" target="_blank" rel="noopener noreferrer">
-          <span class="bb-name">EMI</span>
-          <span class="bb-desc">The Explosives Factory, established 1952 &mdash; Israel&rsquo;s sole supplier of modern explosives for civilian use.</span>
-          <span class="bb-go">Visit site ↗</span>
-        </a>
-      </div>
-    </div>
     </div>
   </div>
-  <div class="belt rev">
-    <div class="belt-track">
-    <div class="belt-card">
-      <div class="belt-flip">
-        <a class="belt-face belt-front" href="https://www.uti.co.il/" target="_blank" rel="noopener noreferrer" aria-label="UTI">
-          <img src="LOGOS/companies/uti.png" alt="UTI" loading="lazy" onerror="var w=document.createElement('div');w.className='belt-word';w.textContent=this.alt;this.replaceWith(w);">
-        </a>
-        <a class="belt-face belt-back" href="https://www.uti.co.il/" target="_blank" rel="noopener noreferrer">
-          <span class="bb-name">UTI</span>
-          <span class="bb-desc">Universal Trucks Israel, leading the 6&ndash;12 ton light truck market since 1994 with ISUZU trucks and SUNWIN electric buses.</span>
-          <span class="bb-go">Visit site ↗</span>
-        </a>
-      </div>
-    </div>
-    <div class="belt-card">
-      <div class="belt-flip">
-        <a class="belt-face belt-front" href="https://www.daf.co.il/" target="_blank" rel="noopener noreferrer" aria-label="Tashtit">
-          <img src="LOGOS/companies/tashtit.png" alt="Tashtit" loading="lazy" onerror="var w=document.createElement('div');w.className='belt-word';w.textContent=this.alt;this.replaceWith(w);">
-        </a>
-        <a class="belt-face belt-back" href="https://www.daf.co.il/" target="_blank" rel="noopener noreferrer">
-          <span class="bb-name">Tashtit</span>
-          <span class="bb-desc">Importer of DAF, TATRA and KENWORTH trucks, VDL buses and LIEBHERR cranes, with leasing and maintenance services.</span>
-          <span class="bb-go">Visit site ↗</span>
-        </a>
-      </div>
-    </div>
-    <div class="belt-card">
-      <div class="belt-flip">
-        <a class="belt-face belt-front" href="https://www.taavura.com/our-activities/logistics-road-haulage/road-haulage-2/" target="_blank" rel="noopener noreferrer" aria-label="Yozma Galilee">
-          <img src="LOGOS/companies/yozma-galilee.png" alt="Yozma Galilee" loading="lazy" onerror="var w=document.createElement('div');w.className='belt-word';w.textContent=this.alt;this.replaceWith(w);">
-        </a>
-        <a class="belt-face belt-back" href="https://www.taavura.com/our-activities/logistics-road-haulage/road-haulage-2/" target="_blank" rel="noopener noreferrer">
-          <span class="bb-name">Yozma Galilee</span>
-          <span class="bb-desc">Bulk transport of stone, clay, quarry materials, shredded and base materials to customers nationwide.</span>
-          <span class="bb-go">Visit site ↗</span>
-        </a>
-      </div>
-    </div>
-    <div class="belt-card">
-      <div class="belt-flip">
-        <a class="belt-face belt-front" href="https://knegev.co.il/" target="_blank" rel="noopener noreferrer" aria-label="Hanegev  Arava">
-          <img src="LOGOS/companies/hanegev-arava.png" alt="Hanegev  Arava" loading="lazy" onerror="var w=document.createElement('div');w.className='belt-word';w.textContent=this.alt;this.replaceWith(w);">
-        </a>
-        <a class="belt-face belt-back" href="https://knegev.co.il/" target="_blank" rel="noopener noreferrer">
-          <span class="bb-name">Hanegev &amp; Arava</span>
-          <span class="bb-desc">Agricultural transport &mdash; primarily milk &mdash; alongside bulk, container and fuel haulage from logistics centres across Israel.</span>
-          <span class="bb-go">Visit site ↗</span>
-        </a>
-      </div>
-    </div>
-    <div class="belt-card">
-      <div class="belt-flip">
-        <a class="belt-face belt-front" href="https://galilmaaravi.co.il/" target="_blank" rel="noopener noreferrer" aria-label="West Galilee">
-          <img src="LOGOS/companies/west-galilee.png" alt="West Galilee" loading="lazy" onerror="var w=document.createElement('div');w.className='belt-word';w.textContent=this.alt;this.replaceWith(w);">
-        </a>
-        <a class="belt-face belt-back" href="https://galilmaaravi.co.il/" target="_blank" rel="noopener noreferrer">
-          <span class="bb-name">West Galilee</span>
-          <span class="bb-desc">Container transport at Haifa and Ashdod ports, plus heavy equipment, agricultural produce and terminal logistics services.</span>
-          <span class="bb-go">Visit site ↗</span>
-        </a>
-      </div>
-    </div>
-    <div class="belt-card">
-      <div class="belt-flip">
-        <a class="belt-face belt-front" href="https://emekhayarden.co.il/" target="_blank" rel="noopener noreferrer" aria-label="Emek HaYarden">
-          <img src="LOGOS/companies/emek-hayarden.png" alt="Emek HaYarden" loading="lazy" onerror="var w=document.createElement('div');w.className='belt-word';w.textContent=this.alt;this.replaceWith(w);">
-        </a>
-        <a class="belt-face belt-back" href="https://emekhayarden.co.il/" target="_blank" rel="noopener noreferrer">
-          <span class="bb-name">Emek HaYarden</span>
-          <span class="bb-desc">Agricultural, feed-mix, container, fuel and bulk transport across Israel.</span>
-          <span class="bb-go">Visit site ↗</span>
-        </a>
-      </div>
-    </div>
-    <div class="belt-card">
-      <div class="belt-flip">
-        <a class="belt-face belt-front" href="https://www.taavura.com/our-activities/logistics-road-haulage/road-haulage-2/" target="_blank" rel="noopener noreferrer" aria-label="Tifzoret">
-          <img src="LOGOS/companies/tifzoret.png" alt="Tifzoret" loading="lazy" onerror="var w=document.createElement('div');w.className='belt-word';w.textContent=this.alt;this.replaceWith(w);">
-        </a>
-        <a class="belt-face belt-back" href="https://www.taavura.com/our-activities/logistics-road-haulage/road-haulage-2/" target="_blank" rel="noopener noreferrer">
-          <span class="bb-name">Tifzoret</span>
-          <span class="bb-desc">[DESCRIPTION PENDING &mdash; not included in the source sheet]</span>
-          <span class="bb-go">Visit site ↗</span>
-        </a>
-      </div>
-    </div>
-    <div class="belt-card">
-      <div class="belt-flip">
-        <a class="belt-face belt-front" href="https://www.taavura-hsm.co.il/" target="_blank" rel="noopener noreferrer" aria-label="Taavura Tours">
-          <img src="LOGOS/companies/taavura-tours.png" alt="Taavura Tours" loading="lazy" onerror="var w=document.createElement('div');w.className='belt-word';w.textContent=this.alt;this.replaceWith(w);">
-        </a>
-        <a class="belt-face belt-back" href="https://www.taavura-hsm.co.il/" target="_blank" rel="noopener noreferrer">
-          <span class="bb-name">Taavura Tours</span>
-          <span class="bb-desc">Hundreds of vans, buses and taxis for employee transport and special rides nationwide, on a modern well-equipped fleet.</span>
-          <span class="bb-go">Visit site ↗</span>
-        </a>
-      </div>
-    </div>
-    <div class="belt-card">
-      <div class="belt-flip">
-        <a class="belt-face belt-front" href="https://www.shmerling.co.il/" target="_blank" rel="noopener noreferrer" aria-label="Shmerling">
-          <img src="LOGOS/companies/shmerling.png" alt="Shmerling" loading="lazy" onerror="var w=document.createElement('div');w.className='belt-word';w.textContent=this.alt;this.replaceWith(w);">
-        </a>
-        <a class="belt-face belt-back" href="https://www.shmerling.co.il/" target="_blank" rel="noopener noreferrer">
-          <span class="bb-name">Shmerling</span>
-          <span class="bb-desc">Synchro Energy Engineering &mdash; power generator solutions from design and production through installation and spare parts.</span>
-          <span class="bb-go">Visit site ↗</span>
-        </a>
-      </div>
-    </div>
-    <div class="belt-card">
-      <div class="belt-flip">
-        <a class="belt-face belt-front" href="https://www.venta.co.il/" target="_blank" rel="noopener noreferrer" aria-label="Venta">
-          <img src="LOGOS/companies/venta.png" alt="Venta" loading="lazy" onerror="var w=document.createElement('div');w.className='belt-word';w.textContent=this.alt;this.replaceWith(w);">
-        </a>
-        <a class="belt-face belt-back" href="https://www.venta.co.il/" target="_blank" rel="noopener noreferrer">
-          <span class="bb-name">Venta</span>
-          <span class="bb-desc">Import, manufacture and installation of ventilation and heating systems for industry, agriculture and institutions.</span>
-          <span class="bb-go">Visit site ↗</span>
-        </a>
-      </div>
-    </div>
-    <div class="belt-card">
-      <div class="belt-flip">
-        <a class="belt-face belt-front" href="https://www.uti.co.il/" target="_blank" rel="noopener noreferrer" aria-label="UTI">
-          <img src="LOGOS/companies/uti.png" alt="UTI" loading="lazy" onerror="var w=document.createElement('div');w.className='belt-word';w.textContent=this.alt;this.replaceWith(w);">
-        </a>
-        <a class="belt-face belt-back" href="https://www.uti.co.il/" target="_blank" rel="noopener noreferrer">
-          <span class="bb-name">UTI</span>
-          <span class="bb-desc">Universal Trucks Israel, leading the 6&ndash;12 ton light truck market since 1994 with ISUZU trucks and SUNWIN electric buses.</span>
-          <span class="bb-go">Visit site ↗</span>
-        </a>
-      </div>
-    </div>
-    <div class="belt-card">
-      <div class="belt-flip">
-        <a class="belt-face belt-front" href="https://www.daf.co.il/" target="_blank" rel="noopener noreferrer" aria-label="Tashtit">
-          <img src="LOGOS/companies/tashtit.png" alt="Tashtit" loading="lazy" onerror="var w=document.createElement('div');w.className='belt-word';w.textContent=this.alt;this.replaceWith(w);">
-        </a>
-        <a class="belt-face belt-back" href="https://www.daf.co.il/" target="_blank" rel="noopener noreferrer">
-          <span class="bb-name">Tashtit</span>
-          <span class="bb-desc">Importer of DAF, TATRA and KENWORTH trucks, VDL buses and LIEBHERR cranes, with leasing and maintenance services.</span>
-          <span class="bb-go">Visit site ↗</span>
-        </a>
-      </div>
-    </div>
-    <div class="belt-card">
-      <div class="belt-flip">
-        <a class="belt-face belt-front" href="https://www.taavura.com/our-activities/logistics-road-haulage/road-haulage-2/" target="_blank" rel="noopener noreferrer" aria-label="Yozma Galilee">
-          <img src="LOGOS/companies/yozma-galilee.png" alt="Yozma Galilee" loading="lazy" onerror="var w=document.createElement('div');w.className='belt-word';w.textContent=this.alt;this.replaceWith(w);">
-        </a>
-        <a class="belt-face belt-back" href="https://www.taavura.com/our-activities/logistics-road-haulage/road-haulage-2/" target="_blank" rel="noopener noreferrer">
-          <span class="bb-name">Yozma Galilee</span>
-          <span class="bb-desc">Bulk transport of stone, clay, quarry materials, shredded and base materials to customers nationwide.</span>
-          <span class="bb-go">Visit site ↗</span>
-        </a>
-      </div>
-    </div>
-    <div class="belt-card">
-      <div class="belt-flip">
-        <a class="belt-face belt-front" href="https://knegev.co.il/" target="_blank" rel="noopener noreferrer" aria-label="Hanegev  Arava">
-          <img src="LOGOS/companies/hanegev-arava.png" alt="Hanegev  Arava" loading="lazy" onerror="var w=document.createElement('div');w.className='belt-word';w.textContent=this.alt;this.replaceWith(w);">
-        </a>
-        <a class="belt-face belt-back" href="https://knegev.co.il/" target="_blank" rel="noopener noreferrer">
-          <span class="bb-name">Hanegev &amp; Arava</span>
-          <span class="bb-desc">Agricultural transport &mdash; primarily milk &mdash; alongside bulk, container and fuel haulage from logistics centres across Israel.</span>
-          <span class="bb-go">Visit site ↗</span>
-        </a>
-      </div>
-    </div>
-    <div class="belt-card">
-      <div class="belt-flip">
-        <a class="belt-face belt-front" href="https://galilmaaravi.co.il/" target="_blank" rel="noopener noreferrer" aria-label="West Galilee">
-          <img src="LOGOS/companies/west-galilee.png" alt="West Galilee" loading="lazy" onerror="var w=document.createElement('div');w.className='belt-word';w.textContent=this.alt;this.replaceWith(w);">
-        </a>
-        <a class="belt-face belt-back" href="https://galilmaaravi.co.il/" target="_blank" rel="noopener noreferrer">
-          <span class="bb-name">West Galilee</span>
-          <span class="bb-desc">Container transport at Haifa and Ashdod ports, plus heavy equipment, agricultural produce and terminal logistics services.</span>
-          <span class="bb-go">Visit site ↗</span>
-        </a>
-      </div>
-    </div>
-    <div class="belt-card">
-      <div class="belt-flip">
-        <a class="belt-face belt-front" href="https://emekhayarden.co.il/" target="_blank" rel="noopener noreferrer" aria-label="Emek HaYarden">
-          <img src="LOGOS/companies/emek-hayarden.png" alt="Emek HaYarden" loading="lazy" onerror="var w=document.createElement('div');w.className='belt-word';w.textContent=this.alt;this.replaceWith(w);">
-        </a>
-        <a class="belt-face belt-back" href="https://emekhayarden.co.il/" target="_blank" rel="noopener noreferrer">
-          <span class="bb-name">Emek HaYarden</span>
-          <span class="bb-desc">Agricultural, feed-mix, container, fuel and bulk transport across Israel.</span>
-          <span class="bb-go">Visit site ↗</span>
-        </a>
-      </div>
-    </div>
-    <div class="belt-card">
-      <div class="belt-flip">
-        <a class="belt-face belt-front" href="https://www.taavura.com/our-activities/logistics-road-haulage/road-haulage-2/" target="_blank" rel="noopener noreferrer" aria-label="Tifzoret">
-          <img src="LOGOS/companies/tifzoret.png" alt="Tifzoret" loading="lazy" onerror="var w=document.createElement('div');w.className='belt-word';w.textContent=this.alt;this.replaceWith(w);">
-        </a>
-        <a class="belt-face belt-back" href="https://www.taavura.com/our-activities/logistics-road-haulage/road-haulage-2/" target="_blank" rel="noopener noreferrer">
-          <span class="bb-name">Tifzoret</span>
-          <span class="bb-desc">[DESCRIPTION PENDING &mdash; not included in the source sheet]</span>
-          <span class="bb-go">Visit site ↗</span>
-        </a>
-      </div>
-    </div>
-    <div class="belt-card">
-      <div class="belt-flip">
-        <a class="belt-face belt-front" href="https://www.taavura-hsm.co.il/" target="_blank" rel="noopener noreferrer" aria-label="Taavura Tours">
-          <img src="LOGOS/companies/taavura-tours.png" alt="Taavura Tours" loading="lazy" onerror="var w=document.createElement('div');w.className='belt-word';w.textContent=this.alt;this.replaceWith(w);">
-        </a>
-        <a class="belt-face belt-back" href="https://www.taavura-hsm.co.il/" target="_blank" rel="noopener noreferrer">
-          <span class="bb-name">Taavura Tours</span>
-          <span class="bb-desc">Hundreds of vans, buses and taxis for employee transport and special rides nationwide, on a modern well-equipped fleet.</span>
-          <span class="bb-go">Visit site ↗</span>
-        </a>
-      </div>
-    </div>
-    <div class="belt-card">
-      <div class="belt-flip">
-        <a class="belt-face belt-front" href="https://www.shmerling.co.il/" target="_blank" rel="noopener noreferrer" aria-label="Shmerling">
-          <img src="LOGOS/companies/shmerling.png" alt="Shmerling" loading="lazy" onerror="var w=document.createElement('div');w.className='belt-word';w.textContent=this.alt;this.replaceWith(w);">
-        </a>
-        <a class="belt-face belt-back" href="https://www.shmerling.co.il/" target="_blank" rel="noopener noreferrer">
-          <span class="bb-name">Shmerling</span>
-          <span class="bb-desc">Synchro Energy Engineering &mdash; power generator solutions from design and production through installation and spare parts.</span>
-          <span class="bb-go">Visit site ↗</span>
-        </a>
-      </div>
-    </div>
-    <div class="belt-card">
-      <div class="belt-flip">
-        <a class="belt-face belt-front" href="https://www.venta.co.il/" target="_blank" rel="noopener noreferrer" aria-label="Venta">
-          <img src="LOGOS/companies/venta.png" alt="Venta" loading="lazy" onerror="var w=document.createElement('div');w.className='belt-word';w.textContent=this.alt;this.replaceWith(w);">
-        </a>
-        <a class="belt-face belt-back" href="https://www.venta.co.il/" target="_blank" rel="noopener noreferrer">
-          <span class="bb-name">Venta</span>
-          <span class="bb-desc">Import, manufacture and installation of ventilation and heating systems for industry, agriculture and institutions.</span>
-          <span class="bb-go">Visit site ↗</span>
-        </a>
-      </div>
-    </div>
-    </div>
-  </div>
-  <div class="belt">
-    <div class="belt-track">
-    <div class="belt-card">
-      <div class="belt-flip">
-        <a class="belt-face belt-front" href="https://www.taavura.com/our-activities/energy-environment/landfill/" target="_blank" rel="noopener noreferrer" aria-label="Ganei Hadas">
-          <img src="LOGOS/companies/ganei-hadas.png" alt="Ganei Hadas" loading="lazy" onerror="var w=document.createElement('div');w.className='belt-word';w.textContent=this.alt;this.replaceWith(w);">
-        </a>
-        <a class="belt-face belt-back" href="https://www.taavura.com/our-activities/energy-environment/landfill/" target="_blank" rel="noopener noreferrer">
-          <span class="bb-name">Ganei Hadas</span>
-          <span class="bb-desc">M.M.M operates some of Israel&rsquo;s largest and most advanced household waste landfills, located at Dudaim.</span>
-          <span class="bb-go">Visit site ↗</span>
-        </a>
-      </div>
-    </div>
-    <div class="belt-card">
-      <div class="belt-flip">
-        <a class="belt-face belt-front" href="https://www.grandautomotive.eu/" target="_blank" rel="noopener noreferrer" aria-label="GrandAuto">
-          <img src="LOGOS/companies/grandauto.png" alt="GrandAuto" loading="lazy" onerror="var w=document.createElement('div');w.className='belt-word';w.textContent=this.alt;this.replaceWith(w);">
-        </a>
-        <a class="belt-face belt-back" href="https://www.grandautomotive.eu/" target="_blank" rel="noopener noreferrer">
-          <span class="bb-name">GrandAuto</span>
-          <span class="bb-desc">Vehicle distribution across Central Eastern Europe and the Adriatic and Balkan regions.</span>
-          <span class="bb-go">Visit site ↗</span>
-        </a>
-      </div>
-    </div>
-    <div class="belt-card">
-      <div class="belt-flip">
-        <a class="belt-face belt-front" href="https://www.medone.co.il/" target="_blank" rel="noopener noreferrer" aria-label="MedOne">
-          <img src="LOGOS/companies/medone.png" alt="MedOne" loading="lazy" onerror="var w=document.createElement('div');w.className='belt-word';w.textContent=this.alt;this.replaceWith(w);">
-        </a>
-        <a class="belt-face belt-back" href="https://www.medone.co.il/" target="_blank" rel="noopener noreferrer">
-          <span class="bb-name">MedOne</span>
-          <span class="bb-desc">Enterprise-grade colocation, sovereign cloud and hybrid data centres on Israel&rsquo;s most connected infrastructure.</span>
-          <span class="bb-go">Visit site ↗</span>
-        </a>
-      </div>
-    </div>
-    <div class="belt-card">
-      <div class="belt-flip">
-        <a class="belt-face belt-front" href="https://www.tikshoov.co.il/" target="_blank" rel="noopener noreferrer" aria-label="Tikshoov">
-          <img src="LOGOS/companies/tikshoov.png" alt="Tikshoov" loading="lazy" onerror="var w=document.createElement('div');w.className='belt-word';w.textContent=this.alt;this.replaceWith(w);">
-        </a>
-        <a class="belt-face belt-back" href="https://www.tikshoov.co.il/" target="_blank" rel="noopener noreferrer">
-          <span class="bb-name">Tikshoov</span>
-          <span class="bb-desc">Israel&rsquo;s leading contact centre provider since 1997, running purpose-built centres for outsourced support, sales and marketing.</span>
-          <span class="bb-go">Visit site ↗</span>
-        </a>
-      </div>
-    </div>
-    <div class="belt-card">
-      <div class="belt-flip">
-        <a class="belt-face belt-front" href="https://www.tikshoov.co.il/our-group/seeu" target="_blank" rel="noopener noreferrer" aria-label="SEEU">
-          <img src="LOGOS/companies/seeu.png" alt="SEEU" loading="lazy" onerror="var w=document.createElement('div');w.className='belt-word';w.textContent=this.alt;this.replaceWith(w);">
-        </a>
-        <a class="belt-face belt-back" href="https://www.tikshoov.co.il/our-group/seeu" target="_blank" rel="noopener noreferrer">
-          <span class="bb-name">SEEU</span>
-          <span class="bb-desc">A 2018 partnership of Tikshoov Group and GO TRACK, pairing contact-centre operations with deep security expertise.</span>
-          <span class="bb-go">Visit site ↗</span>
-        </a>
-      </div>
-    </div>
-    <div class="belt-card">
-      <div class="belt-flip">
-        <a class="belt-face belt-front" href="https://www.ups.com/" target="_blank" rel="noopener noreferrer" aria-label="UPS">
-          <img src="LOGOS/companies/ups.png" alt="UPS" loading="lazy" onerror="var w=document.createElement('div');w.className='belt-word';w.textContent=this.alt;this.replaceWith(w);">
-        </a>
-        <a class="belt-face belt-back" href="https://www.ups.com/" target="_blank" rel="noopener noreferrer">
-          <span class="bb-name">UPS</span>
-          <span class="bb-desc">The world&rsquo;s premier package delivery company, moving 20.8 million packages a day across more than 200 countries.</span>
-          <span class="bb-go">Visit site ↗</span>
-        </a>
-      </div>
-    </div>
-    <div class="belt-card">
-      <div class="belt-flip">
-        <a class="belt-face belt-front" href="https://www.h-o.co.il/" target="_blank" rel="noopener noreferrer" aria-label="HO">
-          <img src="LOGOS/companies/h-o.png" alt="HO" loading="lazy" onerror="var w=document.createElement('div');w.className='belt-word';w.textContent=this.alt;this.replaceWith(w);">
-        </a>
-        <a class="belt-face belt-back" href="https://www.h-o.co.il/" target="_blank" rel="noopener noreferrer">
-          <span class="bb-name">H&amp;O</span>
-          <span class="bb-desc">One of Israel&rsquo;s largest fashion and sports chains &mdash; a department store for the whole family across a wide range of brands.</span>
-          <span class="bb-go">Visit site ↗</span>
-        </a>
-      </div>
-    </div>
-    <div class="belt-card">
-      <div class="belt-flip">
-        <a class="belt-face belt-front" href="https://www.bazan.co.il/" target="_blank" rel="noopener noreferrer" aria-label="Refinery">
-          <img src="LOGOS/companies/refinery.png" alt="Refinery" loading="lazy" onerror="var w=document.createElement('div');w.className='belt-word';w.textContent=this.alt;this.replaceWith(w);">
-        </a>
-        <a class="belt-face belt-back" href="https://www.bazan.co.il/" target="_blank" rel="noopener noreferrer">
-          <span class="bb-name">Refinery</span>
-          <span class="bb-desc">Oil Refineries Ltd (Bazan), one of Israel&rsquo;s largest energy groups, producing refined oil products for industry and transport.</span>
-          <span class="bb-go">Visit site ↗</span>
-        </a>
-      </div>
-    </div>
-    <div class="belt-card">
-      <div class="belt-flip">
-        <a class="belt-face belt-front" href="https://www.gadiv.com/" target="_blank" rel="noopener noreferrer" aria-label="Gadiv">
-          <img src="LOGOS/companies/gadiv.png" alt="Gadiv" loading="lazy" onerror="var w=document.createElement('div');w.className='belt-word';w.textContent=this.alt;this.replaceWith(w);">
-        </a>
-        <a class="belt-face belt-back" href="https://www.gadiv.com/" target="_blank" rel="noopener noreferrer">
-          <span class="bb-name">Gadiv</span>
-          <span class="bb-desc">A Bazan subsidiary founded in 1974, supplying raw materials to the plastics and chemicals industries around the Mediterranean.</span>
-          <span class="bb-go">Visit site ↗</span>
-        </a>
-      </div>
-    </div>
-    <div class="belt-card">
-      <div class="belt-flip">
-        <a class="belt-face belt-front" href="https://www.carmel-olefins.co.il/" target="_blank" rel="noopener noreferrer" aria-label="CAOL">
-          <img src="LOGOS/companies/caol.png" alt="CAOL" loading="lazy" onerror="var w=document.createElement('div');w.className='belt-word';w.textContent=this.alt;this.replaceWith(w);">
-        </a>
-        <a class="belt-face belt-back" href="https://www.carmel-olefins.co.il/" target="_blank" rel="noopener noreferrer">
-          <span class="bb-name">CAOL</span>
-          <span class="bb-desc">Carmel Olefins, sole manufacturer of polyethylene and polypropylene for Israel&rsquo;s plastics industry.</span>
-          <span class="bb-go">Visit site ↗</span>
-        </a>
-      </div>
-    </div>
-    <div class="belt-card">
-      <div class="belt-flip">
-        <a class="belt-face belt-front" href="https://www.taavura.com/our-activities/energy-environment/landfill/" target="_blank" rel="noopener noreferrer" aria-label="Ganei Hadas">
-          <img src="LOGOS/companies/ganei-hadas.png" alt="Ganei Hadas" loading="lazy" onerror="var w=document.createElement('div');w.className='belt-word';w.textContent=this.alt;this.replaceWith(w);">
-        </a>
-        <a class="belt-face belt-back" href="https://www.taavura.com/our-activities/energy-environment/landfill/" target="_blank" rel="noopener noreferrer">
-          <span class="bb-name">Ganei Hadas</span>
-          <span class="bb-desc">M.M.M operates some of Israel&rsquo;s largest and most advanced household waste landfills, located at Dudaim.</span>
-          <span class="bb-go">Visit site ↗</span>
-        </a>
-      </div>
-    </div>
-    <div class="belt-card">
-      <div class="belt-flip">
-        <a class="belt-face belt-front" href="https://www.grandautomotive.eu/" target="_blank" rel="noopener noreferrer" aria-label="GrandAuto">
-          <img src="LOGOS/companies/grandauto.png" alt="GrandAuto" loading="lazy" onerror="var w=document.createElement('div');w.className='belt-word';w.textContent=this.alt;this.replaceWith(w);">
-        </a>
-        <a class="belt-face belt-back" href="https://www.grandautomotive.eu/" target="_blank" rel="noopener noreferrer">
-          <span class="bb-name">GrandAuto</span>
-          <span class="bb-desc">Vehicle distribution across Central Eastern Europe and the Adriatic and Balkan regions.</span>
-          <span class="bb-go">Visit site ↗</span>
-        </a>
-      </div>
-    </div>
-    <div class="belt-card">
-      <div class="belt-flip">
-        <a class="belt-face belt-front" href="https://www.medone.co.il/" target="_blank" rel="noopener noreferrer" aria-label="MedOne">
-          <img src="LOGOS/companies/medone.png" alt="MedOne" loading="lazy" onerror="var w=document.createElement('div');w.className='belt-word';w.textContent=this.alt;this.replaceWith(w);">
-        </a>
-        <a class="belt-face belt-back" href="https://www.medone.co.il/" target="_blank" rel="noopener noreferrer">
-          <span class="bb-name">MedOne</span>
-          <span class="bb-desc">Enterprise-grade colocation, sovereign cloud and hybrid data centres on Israel&rsquo;s most connected infrastructure.</span>
-          <span class="bb-go">Visit site ↗</span>
-        </a>
-      </div>
-    </div>
-    <div class="belt-card">
-      <div class="belt-flip">
-        <a class="belt-face belt-front" href="https://www.tikshoov.co.il/" target="_blank" rel="noopener noreferrer" aria-label="Tikshoov">
-          <img src="LOGOS/companies/tikshoov.png" alt="Tikshoov" loading="lazy" onerror="var w=document.createElement('div');w.className='belt-word';w.textContent=this.alt;this.replaceWith(w);">
-        </a>
-        <a class="belt-face belt-back" href="https://www.tikshoov.co.il/" target="_blank" rel="noopener noreferrer">
-          <span class="bb-name">Tikshoov</span>
-          <span class="bb-desc">Israel&rsquo;s leading contact centre provider since 1997, running purpose-built centres for outsourced support, sales and marketing.</span>
-          <span class="bb-go">Visit site ↗</span>
-        </a>
-      </div>
-    </div>
-    <div class="belt-card">
-      <div class="belt-flip">
-        <a class="belt-face belt-front" href="https://www.tikshoov.co.il/our-group/seeu" target="_blank" rel="noopener noreferrer" aria-label="SEEU">
-          <img src="LOGOS/companies/seeu.png" alt="SEEU" loading="lazy" onerror="var w=document.createElement('div');w.className='belt-word';w.textContent=this.alt;this.replaceWith(w);">
-        </a>
-        <a class="belt-face belt-back" href="https://www.tikshoov.co.il/our-group/seeu" target="_blank" rel="noopener noreferrer">
-          <span class="bb-name">SEEU</span>
-          <span class="bb-desc">A 2018 partnership of Tikshoov Group and GO TRACK, pairing contact-centre operations with deep security expertise.</span>
-          <span class="bb-go">Visit site ↗</span>
-        </a>
-      </div>
-    </div>
-    <div class="belt-card">
-      <div class="belt-flip">
-        <a class="belt-face belt-front" href="https://www.ups.com/" target="_blank" rel="noopener noreferrer" aria-label="UPS">
-          <img src="LOGOS/companies/ups.png" alt="UPS" loading="lazy" onerror="var w=document.createElement('div');w.className='belt-word';w.textContent=this.alt;this.replaceWith(w);">
-        </a>
-        <a class="belt-face belt-back" href="https://www.ups.com/" target="_blank" rel="noopener noreferrer">
-          <span class="bb-name">UPS</span>
-          <span class="bb-desc">The world&rsquo;s premier package delivery company, moving 20.8 million packages a day across more than 200 countries.</span>
-          <span class="bb-go">Visit site ↗</span>
-        </a>
-      </div>
-    </div>
-    <div class="belt-card">
-      <div class="belt-flip">
-        <a class="belt-face belt-front" href="https://www.h-o.co.il/" target="_blank" rel="noopener noreferrer" aria-label="HO">
-          <img src="LOGOS/companies/h-o.png" alt="HO" loading="lazy" onerror="var w=document.createElement('div');w.className='belt-word';w.textContent=this.alt;this.replaceWith(w);">
-        </a>
-        <a class="belt-face belt-back" href="https://www.h-o.co.il/" target="_blank" rel="noopener noreferrer">
-          <span class="bb-name">H&amp;O</span>
-          <span class="bb-desc">One of Israel&rsquo;s largest fashion and sports chains &mdash; a department store for the whole family across a wide range of brands.</span>
-          <span class="bb-go">Visit site ↗</span>
-        </a>
-      </div>
-    </div>
-    <div class="belt-card">
-      <div class="belt-flip">
-        <a class="belt-face belt-front" href="https://www.bazan.co.il/" target="_blank" rel="noopener noreferrer" aria-label="Refinery">
-          <img src="LOGOS/companies/refinery.png" alt="Refinery" loading="lazy" onerror="var w=document.createElement('div');w.className='belt-word';w.textContent=this.alt;this.replaceWith(w);">
-        </a>
-        <a class="belt-face belt-back" href="https://www.bazan.co.il/" target="_blank" rel="noopener noreferrer">
-          <span class="bb-name">Refinery</span>
-          <span class="bb-desc">Oil Refineries Ltd (Bazan), one of Israel&rsquo;s largest energy groups, producing refined oil products for industry and transport.</span>
-          <span class="bb-go">Visit site ↗</span>
-        </a>
-      </div>
-    </div>
-    <div class="belt-card">
-      <div class="belt-flip">
-        <a class="belt-face belt-front" href="https://www.gadiv.com/" target="_blank" rel="noopener noreferrer" aria-label="Gadiv">
-          <img src="LOGOS/companies/gadiv.png" alt="Gadiv" loading="lazy" onerror="var w=document.createElement('div');w.className='belt-word';w.textContent=this.alt;this.replaceWith(w);">
-        </a>
-        <a class="belt-face belt-back" href="https://www.gadiv.com/" target="_blank" rel="noopener noreferrer">
-          <span class="bb-name">Gadiv</span>
-          <span class="bb-desc">A Bazan subsidiary founded in 1974, supplying raw materials to the plastics and chemicals industries around the Mediterranean.</span>
-          <span class="bb-go">Visit site ↗</span>
-        </a>
-      </div>
-    </div>
-    <div class="belt-card">
-      <div class="belt-flip">
-        <a class="belt-face belt-front" href="https://www.carmel-olefins.co.il/" target="_blank" rel="noopener noreferrer" aria-label="CAOL">
-          <img src="LOGOS/companies/caol.png" alt="CAOL" loading="lazy" onerror="var w=document.createElement('div');w.className='belt-word';w.textContent=this.alt;this.replaceWith(w);">
-        </a>
-        <a class="belt-face belt-back" href="https://www.carmel-olefins.co.il/" target="_blank" rel="noopener noreferrer">
-          <span class="bb-name">CAOL</span>
-          <span class="bb-desc">Carmel Olefins, sole manufacturer of polyethylene and polypropylene for Israel&rsquo;s plastics industry.</span>
-          <span class="bb-go">Visit site ↗</span>
-        </a>
-      </div>
-    </div>
-    </div>
-  </div>
-</div>
+</section>
 
 <!-- ══ HOW IT WORKS ══ -->
 <div class="agent-section">
@@ -1552,7 +1055,7 @@ nav::after {
       <div class="agent-video-wrap fade-up">
         <div class="agent-video-label">// AGENT_COMM_FEED &nbsp;·&nbsp; LIVE DEMONSTRATION</div>
         <div class="agent-video-frame">
-          <video src="VIDEO.mov" autoplay muted loop playsinline></video>
+          <video src="VIDEO.mp4" autoplay muted loop playsinline></video>
         </div>
         <div class="agent-video-caption">PHASE 03 · CORPORATE AGENT ↔ STARTUP AGENT NEGOTIATION PROTOCOL</div>
       </div>
@@ -1588,7 +1091,7 @@ nav::after {
     <div class="community-copy fade-up">
 
       <h2>Can't make it?<br>Join our network.</h2>
-      <p style="margin-top:14px;">Stay updated on future AgentConf events, AI matchmaking breakthroughs, and exclusive defense-tech insights from Quantum Hub and LoopBridge.</p>
+      <p style="margin-top:14px;">Stay updated on future AgentConf events, AI matchmaking breakthroughs, and exclusive deep-tech insights from Quantum Hub and LoopBridge.</p>
     </div>
     <div class="fade-up">
       <form class="community-form" id="community-form" onsubmit="handleCommunity(event)">
@@ -1615,7 +1118,7 @@ FUsHLQMrrqHwdQo73iGUBCMJKFUVwAvjXn7yXgQm2bD7KYQ/5a7SNDbTeq6qQr28+pUv53KHoCbReDEV
     <a href="#register" class="nav-cta">Register Now →</a>
   </div>
   <div class="footer-bottom">
-    <p class="foot-copy">AGENTCONF_DEFENSE &nbsp;·&nbsp; 18.06.2026 &nbsp;·&nbsp; THE WORLD'S FIRST AGENTS CONFERENCE</p>
+    <p class="foot-copy">AGENTCONF_DEEP_TECH &nbsp;·&nbsp; 18.06.2026 &nbsp;·&nbsp; THE WORLD'S FIRST AGENTS CONFERENCE</p>
     <div class="foot-status"><div class="foot-dot"></div>SYSTEMS ONLINE</div>
   </div>
 </footer>
@@ -1693,6 +1196,33 @@ const io=new IntersectionObserver(es=>es.forEach(e=>{
 }),{threshold:.12});
 document.querySelectorAll('.fade-up,.reveal-wipe').forEach(el=>io.observe(el));
 
+function resumeLogoBelts(){
+  document.querySelectorAll('.logo-belt').forEach(belt=>belt.classList.remove('is-paused'));
+  if(document.activeElement?.classList.contains('logo-card'))document.activeElement.blur();
+}
+
+// Duplicate each company sequence for a seamless, accessible infinite belt.
+document.querySelectorAll('.logo-belt').forEach(belt=>{
+  const track=belt.querySelector('.logo-track');
+  const sequence=belt.querySelector('.logo-sequence');
+  if(!track||!sequence)return;
+  const clone=sequence.cloneNode(true);
+  clone.setAttribute('aria-hidden','true');
+  clone.querySelectorAll('a').forEach(link=>link.tabIndex=-1);
+  track.appendChild(clone);
+  track.querySelectorAll('.logo-card').forEach(card=>{
+    card.addEventListener('mouseenter',()=>belt.classList.add('is-paused'));
+    card.addEventListener('mouseleave',()=>belt.classList.remove('is-paused'));
+    card.addEventListener('focusin',()=>belt.classList.add('is-paused'));
+    card.addEventListener('focusout',()=>belt.classList.remove('is-paused'));
+    card.addEventListener('click',()=>setTimeout(resumeLogoBelts,0));
+  });
+});
+window.addEventListener('pageshow',resumeLogoBelts);
+window.addEventListener('blur',resumeLogoBelts);
+window.addEventListener('focus',resumeLogoBelts);
+document.addEventListener('visibilitychange',()=>{if(!document.hidden)resumeLogoBelts();});
+
 // Decrypt text animation
 function decrypt(el){
   const CHARS='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
@@ -1733,7 +1263,7 @@ setTimeout(()=>{
 
 function handleSubmit(e){
   e.preventDefault();const d=Object.fromEntries(new FormData(e.target));
-  window.location.href=`mailto:Intern@quantum-hub.com?subject=${encodeURIComponent('AgentConf Defense — Registration')}&body=${encodeURIComponent('REGISTRATION\n\nName: '+d.first_name+' '+d.last_name+'\nOrg: '+d.company+'\nRole: '+d.role+'\nEmail: '+d.email+'\nPhone: '+(d.phone||'—')+'\nType: '+d.joining_as+'\n\nBrief:\n'+(d.message||'—'))}`;
+  window.location.href=`mailto:Intern@quantum-hub.com?subject=${encodeURIComponent('AgentConf Deep Tech — Registration')}&body=${encodeURIComponent('REGISTRATION\n\nName: '+d.first_name+' '+d.last_name+'\nOrg: '+d.company+'\nRole: '+d.role+'\nEmail: '+d.email+'\nPhone: '+(d.phone||'—')+'\nType: '+d.joining_as+'\n\nBrief:\n'+(d.message||'—'))}`;
   document.getElementById('reg-form').style.display='none';
   document.getElementById('success-msg').classList.add('show');
 }
