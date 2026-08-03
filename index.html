@@ -680,9 +680,7 @@ nav::after {
 }
 .logo-belt:nth-child(2) .logo-track { animation-direction:reverse;animation-duration:54s; }
 .logo-belt:nth-child(3) .logo-track { animation-duration:51s; }
-.logo-belt:has(.logo-card:hover) .logo-track,
-.logo-belt.is-paused .logo-track,
-.logo-belt:focus-within .logo-track { animation-play-state:paused; }
+.logo-belt.is-paused .logo-track { animation-play-state:paused; }
 .logo-sequence { display:flex;gap:var(--belt-gap);padding-right:var(--belt-gap); }
 .logo-card {
   display:block;width:calc((100vw - 152px)/5);height:132px;perspective:1100px;
@@ -1008,12 +1006,6 @@ nav::after {
               <span class="logo-face logo-back"><strong>H&amp;O</strong><span>A leading family fashion, sportswear and lifestyle department-store chain.</span></span>
             </span>
           </a>
-          <a class="logo-card" href="https://www.bazan.co.il/" target="_blank" rel="noopener noreferrer" aria-label="Visit Refinery's website">
-            <span class="logo-card-inner">
-              <span class="logo-face logo-front"><img src="LOGOS/companies/refinery.png" alt="Refinery, Bazan Group"></span>
-              <span class="logo-face logo-back"><strong>Refinery</strong><span>Bazan energy and refining products for industry, transport, agriculture and infrastructure.</span></span>
-            </span>
-          </a>
           <a class="logo-card" href="https://www.gadiv.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit Gadiv's website">
             <span class="logo-card-inner">
               <span class="logo-face logo-front"><img src="LOGOS/companies/gadiv.png" alt="Gadiv"></span>
@@ -1204,6 +1196,11 @@ const io=new IntersectionObserver(es=>es.forEach(e=>{
 }),{threshold:.12});
 document.querySelectorAll('.fade-up,.reveal-wipe').forEach(el=>io.observe(el));
 
+function resumeLogoBelts(){
+  document.querySelectorAll('.logo-belt').forEach(belt=>belt.classList.remove('is-paused'));
+  if(document.activeElement?.classList.contains('logo-card'))document.activeElement.blur();
+}
+
 // Duplicate each company sequence for a seamless, accessible infinite belt.
 document.querySelectorAll('.logo-belt').forEach(belt=>{
   const track=belt.querySelector('.logo-track');
@@ -1218,8 +1215,13 @@ document.querySelectorAll('.logo-belt').forEach(belt=>{
     card.addEventListener('mouseleave',()=>belt.classList.remove('is-paused'));
     card.addEventListener('focusin',()=>belt.classList.add('is-paused'));
     card.addEventListener('focusout',()=>belt.classList.remove('is-paused'));
+    card.addEventListener('click',()=>setTimeout(resumeLogoBelts,0));
   });
 });
+window.addEventListener('pageshow',resumeLogoBelts);
+window.addEventListener('blur',resumeLogoBelts);
+window.addEventListener('focus',resumeLogoBelts);
+document.addEventListener('visibilitychange',()=>{if(!document.hidden)resumeLogoBelts();});
 
 // Decrypt text animation
 function decrypt(el){
