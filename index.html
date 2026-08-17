@@ -87,7 +87,7 @@
       padding:40px 64px;background:rgba(6,6,8,0.96);backdrop-filter:blur(18px);
       border-bottom:1px solid var(--border);}
 .nav-logos{display:flex;align-items:center;gap:18px;}
-.nav-logo--quantum{height:50px;width:auto;object-fit:contain;flex:0 0 auto;}
+.nav-logo--quantum{height:50px;width:auto;object-fit:contain;flex:0 0 auto;margin-right:10px;}
 .nav-logos > img[alt="LoopBridge"]{height:48px;width:auto;object-fit:contain;flex:0 0 auto;}
     .logo-sep{width:1px;height:72px;background:rgba(255,255,255,0.1);}
     .partners-sep{width:1px;height:72px;background:rgba(255,255,255,0.1);margin:0 4px;}
@@ -777,6 +777,7 @@ nav::after {
     gap:12px;
   }
   .nav-logos { min-width:0;gap:0; }
+  .nav-logo--quantum { margin-right:12px; }
   .nav-logos > img:first-child { width:auto;height:42px;max-width:42vw;object-fit:contain; }
   .nav-logos .partners-sep,.nav-logos .partners-label,.nav-logos .partner-logo-pill { display:none; }
   .nav-cta { min-height:44px;display:inline-flex;align-items:center;justify-content:center;padding:10px 14px;white-space:nowrap; }
@@ -852,7 +853,7 @@ nav::after {
 
 <!-- ══ COUNTDOWN ══ -->
 <section id="countdown-screen">
-  <video class="hero-video-bg" autoplay muted loop playsinline>
+  <video class="hero-video-bg" autoplay muted loop playsinline webkit-playsinline preload="auto" aria-hidden="true">
     <source src="RoboHands.mp4" type="video/mp4">
   </video>
   <div class="hero-eyebrow" style="display:flex;align-items:center;justify-content:center;">
@@ -1360,6 +1361,29 @@ FUsHLQMrrqHwdQo73iGUBCMJKFUVwAvjXn7yXgQm2bD7KYQ/5a7SNDbTeq6qQr28+pUv53KHoCbReDEV
 </footer>
 
 <script>
+// Keep the muted hero background moving on mobile browsers, including after
+// tab restores. If autoplay is restricted, the first touch starts it directly.
+const heroVideo=document.querySelector('.hero-video-bg');
+if(heroVideo){
+  heroVideo.muted=true;
+  heroVideo.defaultMuted=true;
+  heroVideo.setAttribute('muted','');
+  heroVideo.setAttribute('playsinline','');
+  heroVideo.setAttribute('webkit-playsinline','');
+  const startHeroVideo=()=>{
+    if(!heroVideo.paused)return;
+    const attempt=heroVideo.play();
+    if(attempt&&typeof attempt.catch==='function')attempt.catch(()=>{});
+  };
+  heroVideo.addEventListener('loadedmetadata',startHeroVideo,{once:true});
+  heroVideo.addEventListener('canplay',startHeroVideo);
+  window.addEventListener('pageshow',startHeroVideo);
+  document.addEventListener('visibilitychange',()=>{if(!document.hidden)startHeroVideo();});
+  document.addEventListener('touchstart',startHeroVideo,{once:true,passive:true});
+  document.addEventListener('pointerdown',startHeroVideo,{once:true,passive:true});
+  startHeroVideo();
+}
+
 const cv=document.getElementById('canvas-bg'),ctx=cv.getContext('2d');
 function rsz(){cv.width=innerWidth;cv.height=innerHeight;}
 rsz();window.addEventListener('resize',rsz);
